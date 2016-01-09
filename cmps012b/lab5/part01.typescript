@@ -1,0 +1,77 @@
+Script started on Mon Nov  4 12:37:53 2013
+[?1034hbash-1$ mk uninit.c
+CSOURCE=uninit.c EXECBIN=uninit
++ cid + uninit.c
++ checksource uninit.c
++ gcc -g -O0 -Wall -Wextra -std=gnu99 uninit.c -o uninit -lm
+uninit.c: In function 'main':
+uninit.c:6: warning: unused parameter 'argc'
+uninit.c:6: warning: unused parameter 'argv'
+uninit.c:8: warning: 'foo' is used uninitialized in this function
+uninit.c:10: warning: 'pointer' is used uninitialized in this function
++ set +x
+============================================================
+bash-2$ valgrind.  uninit
+==542== Memcheck, a memory error detector
+==542== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==542== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==542== Command: uninit
+==542== 
+==542== Use of uninitialised value of size 8
+==542==    at 0x3710E43D5B: _itoa_word (in /lib64/libc-2.12.so)
+==542==    by 0x3710E46912: vfprintf (in /lib64/libc-2.12.so)
+==542==    by 0x3710E4F449: printf (in /lib64/libc-2.12.so)
+==542==    by 0x400519: main (uninit.c:8)
+==542== 
+==542== Conditional jump or move depends on uninitialised value(s)
+==542==    at 0x3710E43D65: _itoa_word (in /lib64/libc-2.12.so)
+==542==    by 0x3710E46912: vfprintf (in /lib64/libc-2.12.so)
+==542==    by 0x3710E4F449: printf (in /lib64/libc-2.12.so)
+==542==    by 0x400519: main (uninit.c:8)
+==542== 
+==542== Conditional jump or move depends on uninitialised value(s)
+==542==    at 0x3710E453A3: vfprintf (in /lib64/libc-2.12.so)
+==542==    by 0x3710E4F449: printf (in /lib64/libc-2.12.so)
+==542==    by 0x400519: main (uninit.c:8)
+==542== 
+==542== Conditional jump or move depends on uninitialised value(s)
+==542==    at 0x3710E453C1: vfprintf (in /lib64/libc-2.12.so)
+==542==    by 0x3710E4F449: printf (in /lib64/libc-2.12.so)
+==542==    by 0x400519: main (uninit.c:8)
+==542== 
+7
+==542== Use of uninitialised value of size 8
+==542==    at 0x40051E: main (uninit.c:10)
+==542== 
+==542== Invalid read of size 4
+==542==    at 0x40051E: main (uninit.c:10)
+==542==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==542== 
+==542== 
+==542== Process terminating with default action of signal 11 (SIGSEGV)
+==542==  Access not within mapped region at address 0x0
+==542==    at 0x40051E: main (uninit.c:10)
+==542==  If you believe this happened as a result of a stack
+==542==  overflow in your program's main thread (unlikely but
+==542==  possible), you can try to increase the size of the
+==542==  main thread stack using the --main-stacksize= flag.
+==542==  The main thread stack size used in this run was 10485760.
+==542== 
+==542== HEAP SUMMARY:
+==542==     in use at exit: 0 bytes in 0 blocks
+==542==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==542== 
+==542== All heap blocks were freed -- no leaks are possible
+==542== 
+==542== For counts of detected and suppressed errors, rerun with: -v
+==542== Use --track-origins=yes to see where uninitialised values come from
+==542== ERROR SUMMARY: 6 errors from 6 contexts (suppressed: 6 from 6)
+Segmentation fault (core dumped)
+bash-3$ echo $?
+139
+bash-4$ pstst  atus 139
+pstatus: 0x008B TERMINATED 11: Segmentation fault (core dumped)
+bash-5$ exit
+exit
+
+Script done on Mon Nov  4 12:38:36 2013

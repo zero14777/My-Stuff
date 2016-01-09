@@ -1,0 +1,469 @@
+head	1.13;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.13
+date	2013.10.20.00.23.55;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2013.10.19.23.15.50;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2013.10.19.23.15.05;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2013.10.19.23.14.14;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2013.10.19.23.12.24;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2013.10.19.22.55.04;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2013.10.19.22.54.25;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2013.10.19.22.49.36;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.10.19.22.47.50;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.10.19.22.46.35;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.10.19.22.45.03;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.10.17.22.50.14;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.17.22.08.09;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@-
+@
+text
+@// $Id: crpn.c,v 1.12 2013-10-19 16:15:50-07 - - $
+
+//
+// NAME
+//    crpn - a Reverse Polish notation calculator
+//
+// DESCRIPTION
+//    This program will keep track of values given to is and preform
+//    operators given to it in Reverse Polish notation.
+//
+
+#include <assert.h>
+#include <libgen.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int exit_status = EXIT_SUCCESS;
+#define EMPTY (-1)
+#define SIZE 16
+
+typedef struct stack stack;
+struct stack {
+   int top;
+   double numbers[SIZE];
+};
+
+//bad_operator prints out an error message if improper inputis given
+
+void bad_operator (const char *oper) {
+   fflush (NULL);
+   fprintf (stderr, "\"%s\": invalid operator\n", oper);
+   fflush (NULL);
+   exit_status = EXIT_FAILURE;
+}
+
+//push will check for stack overflow then push the given value to the
+//top of the stack if there is space.
+
+void push (stack *the_stack, double number) {
+   if (the_stack->top >= SIZE - 1) {
+         printf ("%f: stack overflow\n", number);
+      }else {
+         the_stack->numbers[++the_stack->top] = number;
+      }
+}
+
+//do_binop will take the top two values on the stack and preform
+//the designated operation with them. The new value will then
+//be pushed onto the stack.
+
+void do_binop (stack *the_stack, char oper) {
+   if (the_stack->top < 1) {
+         printf ("'%d': stack underflow\n", oper);
+      }else {
+         double right = the_stack->numbers[the_stack->top--];
+         double left = the_stack->numbers[the_stack->top--];
+         switch (oper) {
+            case '+': push (the_stack, left + right); break;
+            case '-': push (the_stack, left - right); break;
+            case '*': push (the_stack, left * right); break;
+            case '/': push (the_stack, left / right); break;
+         }
+      }
+}
+
+//do_print will print outthe stack in order from bottom to top or
+//indicate that the stack is empty.
+
+void do_print (stack *the_stack) {
+   if (the_stack->top == EMPTY) {
+         printf ("stack is empty\n");
+      }else {
+         int pos = 0;
+         for (;pos <= the_stack->top; ++pos) {
+            printf ("%f\n", the_stack->numbers[pos]);
+         }
+      }
+}
+
+//do_clear will clear the entire stack so that it contains no values
+
+void do_clear (stack *the_stack) {
+   the_stack->top = EMPTY;
+}
+
+//do_operator will call the function for the passed operator or will
+//call the bad operator function.
+
+void do_operator (stack *the_stack, const char *oper) {
+   switch (oper[0]) {
+         case '+': do_binop (the_stack, '+'); break;
+         case '-': do_binop (the_stack, '-'); break;
+         case '*': do_binop (the_stack, '*'); break;
+         case '/': do_binop (the_stack, '/'); break;
+         case ';': do_print (the_stack);      break;
+         case '@@': do_clear (the_stack);      break;
+         default : bad_operator (oper);   break;
+      }
+}
+
+//main creates the stack and takes input. main starts a loop that
+//will not end until there is an error or the program is forced to 
+//stop.
+
+int main (int argc, char **argv) {
+   if (argc != 1) {
+      fprintf (stderr, "Usage: %s\n", basename (argv[0]));
+      fflush (NULL);
+      exit (EXIT_FAILURE);
+   }
+   stack the_stack;
+   the_stack.top = EMPTY;
+   char buffer[1024];
+   for (;;) {
+      int scanrc = scanf ("%1023s", buffer);
+      if (scanrc == EOF) break;
+      assert (scanrc == 1);
+      if (buffer[0] == '#') {
+         scanrc = scanf ("%1023[^\n]", buffer);
+         continue;
+      }
+      char *endptr;
+      double number = strtod (buffer, &endptr);
+      if (*endptr == '\0') {
+         push (&the_stack, number);
+      }else if (buffer[1] != '\0') {
+         bad_operator (buffer);
+      }else {
+         do_operator (&the_stack, buffer);
+      }
+   }
+   return exit_status;
+}
+
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 10
+a10 1
+// $Id: crpn.c,v 1.11 2013-10-19 16:15:05-07 - - $
+d27 2
+d31 1
+a31 1
+   fprintf (stderr, "oper=\"%s\"\n", oper);
+d36 3
+d47 4
+d66 3
+d80 2
+d86 3
+d101 4
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.10 2013-10-19 16:14:14-07 - - $
+d77 1
+a77 1
+      fprintf (stderr, "Usage: %s", basename (argv[0]));
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.9 2013-10-19 16:12:24-07 - - $
+d77 1
+a77 1
+      fprintf (stderr, "Usage: %s%n", basename (argv[0]));
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.8 2013-10-19 15:55:04-07 - - $
+d20 1
+a20 1
+   fprintf (stderr, "oper=\"%c\"\n", oper);
+d77 1
+a77 1
+      fprintf (stderr, "Usage: %c%n", basename (argv[0]));
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.7 2013-10-19 15:54:25-07 - - $
+d20 1
+a20 1
+   fprintf (stderr, "oper=\"%f\"\n", oper);
+d35 1
+a35 1
+         printf ("'%f': stack underflow\n", oper);
+d77 1
+a77 1
+      fprintf (stderr, "Usage: %f%n", basename (argv[0]));
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.6 2013-10-19 15:49:36-07 - - $
+d50 1
+a50 1
+         printf ("stack is empty%n");
+d54 1
+a54 1
+            printf ("%f%n", the_stack->numbers[pos]);
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.5 2013-10-19 15:47:50-07 - - $
+d50 1
+a50 1
+         printf ("stack is empty\n");
+d54 1
+a54 1
+            printf ("%f\n", the_stack->numbers[pos]);
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.4 2013-10-19 15:46:35-07 - - $
+d53 1
+a53 1
+         for (;the_stack->numbers[pos] != 0; ++pos) {
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.3 2013-10-19 15:45:03-07 - - $
+d53 1
+a53 1
+         for (;the_stack->numbers[pos] != EMPTY; ++pos) {
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.2 2013-10-17 15:50:14-07 - - $
+d49 8
+a56 9
+  // if (the_stack->top == EMPTY) {
+     //    printf ("stack is empty\n");
+     // }else {
+     //    int pos = 0;
+     //    for (;the_stack->numbers[pos] != EMPTY; ++pos) {
+     //       printf ("%f\n", the_stack->numbers[pos]);
+     //    }
+     // }
+     printf ("the_stack=%p, top=%d\n", the_stack, the_stack->top);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.1 2013-10-17 15:08:09-07 - - $
+d20 1
+a20 1
+   fprintf (stderr, "oper=\"%f\"%n", oper);
+d27 1
+a27 1
+         printf ("%f: stack overflow%n", number);
+d35 1
+a35 1
+         printf ("'%f': stack underflow", oper);
+d49 9
+a57 8
+   if (the_stack->top == EMPTY) {
+         printf ("stack is empty%n");
+      }else {
+         int pos;
+         for (pos = 0; pos <= the_stack->top; ++pos) {
+            printf ("%f%n", the_stack->numbers[pos]);
+         }
+      }
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: crpn.c,v 1.25 2013-09-26 17:44:35-07 - - $
+d26 2
+a27 2
+   if (the_stack.top >= SIZE - 1) {
+         out.printf ("%f: stack overflow%n", number);
+d29 1
+a29 1
+         the_stack.numbers[++the_stack.top] = number;
+d34 2
+a35 2
+   if (the_stack.top < 1) {
+         out.printf ("'%f': stack underflow", oper);
+d37 2
+a38 2
+         double right = the_stack.numbers[&the_stack.top--];
+         double left = the_stack.numbers[&the_stack.top--];
+d40 4
+a43 4
+            case '+': push (&the_stack, left + right); break;
+            case '-': push (&the_stack, left - right); break;
+            case '*': push (&the_stack, left * right); break;
+            case '/': push (&the_stack, left / right); break;
+d49 2
+a50 2
+   if (the_stack.top == EMPTY) {
+         out.printf ("stack is empty%n");
+d52 3
+a54 2
+         for (int pos = 0; pos <= the_stack.top; ++pos) {
+            out.printf ("%f%n", the_stack.numbers[pos]);
+d60 1
+a60 1
+   the_stack.top = EMPTY;
+d64 7
+a70 7
+   switch (oper.charAt(0)) {
+         case '+': do_binop (&the_stack, '+'); break;
+         case '-': do_binop (&the_stack, '-'); break;
+         case '*': do_binop (&the_stack, '*'); break;
+         case '/': do_binop (&the_stack, '/'); break;
+         case ';': do_print (&the_stack);      break;
+         case '@@': do_clear (&the_stack);      break;
+@

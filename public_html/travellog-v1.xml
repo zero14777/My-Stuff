@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="mytravel-v1.xsl"?>
+
+<Games>
+	<Nes>
+		<Game> Final Fantasy </Game>
+		<action pic = "Final Fantasy.jpg">
+Final Fantasy is the Jrpg that started one of the longest 
+running series in gaming History. The game is about four warriors 
+of light that travel the world collecting crystals and defeating 
+demons on their quest to kill Chaos, The Demon King.
+
+		</action>
+		<year>1987</year>
+	</Nes>
+	<Computer>
+		<Game> Cave Story </Game>
+		<action pic = "Cave Story.png">
+Cave Story is a 2d Side-scroller, platformer, shooter with
+an interesting story. You play as Quote a robot with Amnesia 
+who finds himself alone in a cave on a floating island. 
+Throughout the course of the game you explore the island and
+the game has three different endings depending on what you do 
+in the game.
+		</action>
+		<year>2004</year>
+	</Computer>
+	<Computer>
+		<Game> Diablo 2 </Game>
+		<action pic = "Diablo 2.png">
+Diablo 2 is a hack n' slash adventure game where you take on 
+the role of one of seven heroes that travel the world killing 
+demons. The goal of the game is to defeat the three prime evils
+that threaten the world of Sanctuary. The game is filled with
+randomly generated dungeons, randomly generated loot and tons
+of quests.
+		</action>
+		<year>2000</year>
+	</Computer>
+</Games>

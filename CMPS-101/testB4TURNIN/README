@@ -1,0 +1,12 @@
+README file for List ADT
+
+The intstack ADT contains the following files:
+README          This documentation file
+List.h          The header file describing the List ADT operations
+List.c          The implementation of the List ADT
+Listdr.c        A driver program for the List ADT that tests the ADT's
+                functionality
+store.c         A program that accepts an input file and prints out a
+                table containing data on customers and their book purchases
+Makefile        A makefile that complies the module and driver program
+                it makes List.c, store.o, store, Listdr.o, and Listdr

@@ -1,0 +1,32 @@
+__assert_fail (4.23.0) {0} void function 
+   expr (4.23.20) {1} string variable param lval 
+   file (4.23.33) {1} string variable param lval 
+   line (4.23.46) {1} int variable param lval 
+
+putb (4.24.0) {0} void function 
+   b (4.24.11) {2} bool variable param lval 
+
+putc (4.25.0) {0} void function 
+   c (4.25.11) {3} char variable param lval 
+
+puti (4.26.0) {0} void function 
+   i (4.26.11) {4} int variable param lval 
+
+puts (4.27.0) {0} void function 
+   s (4.27.11) {5} string variable param lval 
+
+endl (4.28.0) {0} void function 
+
+getc (4.29.0) {0} int function 
+
+getw (4.30.0) {0} string function 
+
+getln (4.31.0) {0} string function 
+
+getargv (4.32.6) {0} string array function 
+
+exit (4.33.0) {0} void function 
+   status (4.33.11) {11} int variable param lval 
+
+fibonacci (5.9.6) {0} int array variable lval 
+index (5.14.4) {0} int variable lval 

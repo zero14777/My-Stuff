@@ -1,0 +1,6 @@
+# Makefile.deps created Sat Nov 23 14:57:26 PST 2013
+debug.o: debug.c debug.h
+stack.o: stack.c stack.h bigint.h debug.h
+bigint.o: bigint.c bigint.h debug.h
+token.o: token.c token.h debug.h
+main.o: main.c bigint.h debug.h stack.h token.h

@@ -1,0 +1,28 @@
+struct foo { }
+
+struct foo {
+       foo tesd;       
+       int j;
+}
+
+int fun(int[] sddsdcas, foo dsf);
+
+int fun(int[] sddsdcas, foo dsf){
+     int sas = 2;
+     return sas;
+}
+
+{
+  foo[] bar = new foo [65];
+  string wubwub = new string (5);
+	int[] hint = new int [5];
+
+        int integer = hint[3];
+
+        char thingy = wubwub[3];
+
+        foo c = new foo ();
+        	c.tesd = c;
+
+	int hey = fun(hint, c);
+}

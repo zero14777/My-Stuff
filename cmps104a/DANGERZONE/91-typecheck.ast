@@ -1,0 +1,130 @@
+ROOT "" (0.0.0) {0}                    
+|  VARDECL "=" (2.7.8) {0}  
+|  |  ARRAY "[]" (2.7.3) {0} array  
+|  |  |  INT "int" (2.7.0) {0} int 
+|  |  |  DECLID "a" (2.7.6) {0} int array variable lval 
+|  |  NULL "null" (2.7.10) {0} null const 
+|  VARDECL "=" (2.8.14) {0}  
+|  |  ARRAY "[]" (2.8.9) {0} array  
+|  |  |  TYPEID "reference" (2.8.0) {0} struct "reference" 
+|  |  |  DECLID "a" (2.8.12) {0} struct "reference" array variable lval 
+|  |  NEWARRAY "new" (2.8.16) {0} string array vreg  
+|  |  |  STRING "string" (2.8.20) {0} string 
+|  |  |  INTCON "10" (2.8.27) {0} int const 
+|  PROTOTYPE "" (2.9.0) {0}  
+|  |  VOID "void" (2.9.0) {0} void 
+|  |  |  DECLID "foo" (2.9.5) {0} void 
+|  |  PARAMLIST "(" (2.9.9) {0} 
+|  PROTOTYPE "" (2.10.0) {0}  
+|  |  VOID "void" (2.10.0) {0} 
+|  |  |  DECLID "foo" (2.10.5) {0} 
+|  |  PARAMLIST "(" (2.10.9) {0} 
+|  |  |  INT "int" (2.10.10) {0} 
+|  |  |  |  DECLID "a" (2.10.14) {0} 
+|  FUNCTION "" (2.11.0) {0}   
+|  |  VOID "void" (2.11.0) {0} void 
+|  |  |  DECLID "foo" (2.11.5) {0} void 
+|  |  PARAMLIST "(" (2.11.9) {0}  
+|  |  |  ARRAY "[]" (2.11.13) {2} array  
+|  |  |  |  INT "int" (2.11.10) {2} int 
+|  |  |  |  DECLID "a" (2.11.16) {2} int array 
+|  |  |  ARRAY "[]" (2.11.22) {2} array  
+|  |  |  |  INT "int" (2.11.19) {2} int 
+|  |  |  |  DECLID "b" (2.11.25) {2} int array 
+|  |  BLOCK "{" (2.11.28) {0} 
+|  |  |  VARDECL "=" (2.11.35) {2}  
+|  |  |  |  INT "int" (2.11.29) {2} int 
+|  |  |  |  |  DECLID "x" (2.11.33) {2} int variable lval 
+|  |  |  |  '+' "+" (2.11.39) {2}  
+|  |  |  |  |  IDENT "a" (2.11.37) {3} int array variable param lval (2.11.13) 
+|  |  |  |  |  IDENT "b" (2.11.41) {3} int array variable param lval (2.11.22) 
+|  STRUCT "struct" (2.12.0) {0} struct   
+|  |  TYPEID "foo" (2.12.7) {0} struct 
+|  |  INT "int" (2.12.13) {3} int 
+|  |  |  FIELD "a" (2.12.17) {3} int field 
+|  |  INT "int" (2.12.20) {3} int 
+|  |  |  FIELD "b" (2.12.24) {3} int field 
+|  '+' "+" (2.14.2) {0}  
+|  |  IDENT "a" (2.14.0) {0} int array variable lval (2.7.6) 
+|  |  IDENT "b" (2.14.4) {0} 
+|  CALL "(" (2.15.2) {0} 
+|  |  IDENT "f" (2.15.0) {0} 
+|  CALL "(" (2.16.2) {0}    
+|  |  IDENT "f" (2.16.0) {0} 
+|  |  IDENT "x" (2.16.3) {0} 
+|  |  '+' "+" (2.16.7) {0}  
+|  |  |  IDENT "y" (2.16.6) {0} 
+|  |  |  INTCON "3" (2.16.8) {0} int const 
+|  |  IDENT "z" (2.16.11) {0} 
+|  '+' "+" (2.17.4) {0}  
+|  |  IDENT "foo" (2.17.0) {0} void function (2.11.0) 
+|  |  IDENT "bar" (2.17.6) {0} 
+|  '=' "=" (2.18.2) {0}  
+|  |  IDENT "a" (2.18.0) {0} int array variable lval (2.7.6) 
+|  |  '=' "=" (2.18.6) {0}  
+|  |  |  IDENT "b" (2.18.4) {0} 
+|  |  |  '=' "=" (2.18.10) {0}  
+|  |  |  |  IDENT "c" (2.18.8) {0} 
+|  |  |  |  IDENT "d" (2.18.12) {0} 
+|  '=' "=" (2.19.5) {0}  
+|  |  IDENT "test" (2.19.0) {0} 
+|  |  '+' "+" (2.19.17) {0}  
+|  |  |  '+' "+" (2.19.11) {0}  
+|  |  |  |  IDENT "abc" (2.19.7) {0} 
+|  |  |  |  IDENT "def" (2.19.13) {0} 
+|  |  |  IDENT "ghi" (2.19.19) {0} 
+|  '+' "+" (2.20.14) {0}  
+|  |  '+' "+" (2.20.5) {0}  
+|  |  |  IDENT "this" (2.20.0) {0} 
+|  |  |  '*' "*" (2.20.10) {0}  
+|  |  |  |  INTCON "23" (2.20.7) {0} int const 
+|  |  |  |  IDENT "a" (2.20.12) {0} int array variable lval (2.7.6) 
+|  |  STRINGCON ""hello"" (2.20.16) {0} string const 
+|  WHILE "while" (2.21.0) {0}  
+|  |  LT "<" (2.21.9) {0}  
+|  |  |  IDENT "a" (2.21.7) {0} int array variable lval (2.7.6) 
+|  |  |  IDENT "b" (2.21.11) {0} 
+|  |  '=' "=" (2.21.16) {0}  
+|  |  |  IDENT "f" (2.21.14) {0} 
+|  |  |  '+' "+" (2.21.20) {0}  
+|  |  |  |  IDENT "f" (2.21.18) {0} 
+|  |  |  |  INTCON "1" (2.21.22) {0} int const 
+|  RETURN "return" (2.22.0) {0} 
+|  |  '+' "+" (2.22.9) {0} int vreg  
+|  |  |  INTCON "3" (2.22.7) {0} int const 
+|  |  |  INTCON "4" (2.22.11) {0} int const 
+|  '=' "=" (2.23.5) {0}  
+|  |  INDEX "[" (2.23.1) {0}  
+|  |  |  IDENT "a" (2.23.0) {0} int array variable lval (2.7.6) 
+|  |  |  IDENT "i" (2.23.2) {0} 
+|  |  INDEX "[" (2.23.8) {0}  
+|  |  |  IDENT "b" (2.23.7) {0} 
+|  |  |  IDENT "j" (2.23.9) {0} 
+|  RETURNVOID "return" (2.24.0) {0} 
+|  WHILE "while" (2.25.0) {0}  
+|  |  TRUE "true" (2.25.7) {0} bool const 
+|  |  BLOCK "{" (2.25.13) {0}  
+|  |  |  '=' "=" (2.25.16) {4}  
+|  |  |  |  IDENT "a" (2.25.14) {0} int array variable lval (2.7.6) 
+|  |  |  |  INTCON "3" (2.25.18) {4} int const 
+|  |  |  '=' "=" (2.25.23) {4}  
+|  |  |  |  IDENT "b" (2.25.21) {0} 
+|  |  |  |  INTCON "4" (2.25.25) {4} int const 
+|  IF "if" (2.26.0) {0}  
+|  |  EQ "==" (2.26.6) {0}  
+|  |  |  IDENT "a" (2.26.4) {0} int array variable lval (2.7.6) 
+|  |  |  IDENT "b" (2.26.9) {0} 
+|  |  CALL "(" (2.26.14) {0}  
+|  |  |  IDENT "f" (2.26.12) {0} 
+|  |  |  IDENT "x" (2.26.15) {0} 
+|  IFELSE "if" (2.27.0) {0}   
+|  |  NE "!=" (2.27.6) {0}  
+|  |  |  IDENT "a" (2.27.4) {0} int array variable lval (2.7.6) 
+|  |  |  IDENT "b" (2.27.9) {0} 
+|  |  '=' "=" (2.27.14) {0}  
+|  |  |  IDENT "y" (2.27.12) {0} 
+|  |  |  INTCON "3" (2.27.16) {0} int const 
+|  |  CALL "(" (2.27.26) {0}   
+|  |  |  IDENT "f" (2.27.24) {0} 
+|  |  |  IDENT "y" (2.27.27) {0} 
+|  |  |  IDENT "z" (2.27.30) {0} 

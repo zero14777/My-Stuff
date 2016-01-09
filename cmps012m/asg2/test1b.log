@@ -1,0 +1,13 @@
+Script  : /afs/cats.ucsc.edu/courses/cmps012b-wm/bin/runprog
+limit c :    0 max core file size (KB)
+limit f : 4194303 max output file size (KB)
+limit t : 4294967295 max CPU time (sec)
+stdin   : test1.in
+stdout  : test1b.out
+stderr  : test1b.err
+log     : test1b.log
+base    : test1b
+Command : ./jxref
+starting: pid 13392: 14:45:45.00
+finished: pid 13392: 14:45:45.00, real 0.00, user 0.07, sys 0.02
+pstatus: 0x0000 EXIT STATUS = 0

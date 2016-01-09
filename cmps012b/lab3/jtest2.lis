@@ -1,0 +1,24 @@
+::::::::::::::::
+../.score/test2.rpn
+::::::::::::::::
+     1	# $Id: test2.rpn,v 1.1 2013-09-25 13:09:38-07 - - $
+     2	# test for generation of errors
+     3	3 + ; # stack underflow error
+     4	1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 #stack overflow
+     5	error bad operator
+::::::::::::::::
+jtest2.output
+::::::::::::::::
+     1	'+': stack underflow3.0
+     2	1.0: stack overflow
+     3	1.0: stack overflow
+     4	1.0: stack overflow
+     5	1.0: stack overflow
+     6	1.0: stack overflow
+     7	"error": invalid operator
+     8	"bad": invalid operator
+     9	"operator": invalid operator
+::::::::::::::::
+jtest2.status
+::::::::::::::::
+     1	STATUS = 1

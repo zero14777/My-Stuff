@@ -1,0 +1,4 @@
+92-uncomment.oc:1:1: error: unterminated comment
+ /*
+ ^
+oc: Some error occurred in cpp

@@ -1,0 +1,4 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting scanfbug.c
+*
+* gcc -g -O0 -Wall -Wextra -std=gnu99 scanfbug.c -o scanfbug -lm
+* gcc: scanfbug.c: No such file or directory

@@ -1,0 +1,5 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting futuretimes.c
+* futuretimes.c: $Id: futuretimes.c,v 1.41 2013-05-17 17:42:18-07 - - $
+* gcc -g -O0 -Wall -Wextra -std=gnu99 futuretimes.c -o futuretimes -lm
+* rm -f futuretimes.o
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished futuretimes.c

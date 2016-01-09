@@ -1,0 +1,6 @@
+#!/bin/sh
+# $Id: mk,v 1.1 2013-10-17 15:08:09-07 - - $
+# Peter Greer-Berezovsky
+gcc -g -O0 -Wall -Wextra -std=gnu99 crpn.c -o crpn
+
+chmod +x crpn

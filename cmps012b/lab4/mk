@@ -1,0 +1,6 @@
+#!/bin/sh
+# $Id: mk,v 1.1 2013-10-31 20:03:11-07 - - $
+# Peter Greer-Berezovsky
+gcc -g -O0 -Wall -Wextra -std=gnu99 cmatch.c -o cmatch
+
+chmod +x cmatch.c

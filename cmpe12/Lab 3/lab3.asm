@@ -1,0 +1,9 @@
+	.Orig x3000
+
+	LD	R3, a
+
+	;AND	R2, R2, x0000
+	;AND	R2, x3100, x3100
+	a	.FILL	x0007
+	b	.FILL	x0001
+	.END

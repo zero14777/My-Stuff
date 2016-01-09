@@ -1,0 +1,295 @@
+#!/usr/bin/perl
+#pbgreerb@ucsc.edu
+use strict;
+use warnings;
+
+use Getopt::Long;
+Getopt::Long::Configure ("bundling");
+
+my $d;
+my $n;
+my $f = "./Makefile";
+my $firsttarget = "";
+my $commandcount = 0;
+my @previoustargets = undef;
+my %targets;
+my %firsttargets;
+my %macros;
+my %commands;
+my %complete;
+my %strsignal = (
+    0 => "Unknown signal 0",
+    1 => "Hangup",
+    2 => "Interrupt",
+    3 => "Quit",
+    4 => "Illegal instruction",
+    5 => "Trace/breakpoint trap",
+    6 => "Aborted",
+    7 => "Bus error",
+    8 => "Floating point exception",
+    9 => "Killed",
+   10 => "User defined signal 1",
+   11 => "Segmentation fault",
+   12 => "User defined signal 2",
+   13 => "Broken pipe",
+   14 => "Alarm clock",
+   15 => "Terminated",
+   16 => "Stack fault",
+   17 => "Child exited",
+   18 => "Continued",
+   19 => "Stopped (signal)",
+   20 => "Stopped",
+   21 => "Stopped (tty input)",
+   22 => "Stopped (tty output)",
+   23 => "Urgent I/O condition",
+   24 => "CPU time limit exceeded",
+   25 => "File size limit exceeded",
+   26 => "Virtual timer expired",
+   27 => "Profiling timer expired",
+   28 => "Window changed",
+   29 => "I/O possible",
+   30 => "Power failure",
+   31 => "Bad system call",
+   32 => "Unknown signal 32",
+   33 => "Unknown signal 33",
+   34 => "Real-time signal 0",
+   35 => "Real-time signal 1",
+   36 => "Real-time signal 2",
+   37 => "Real-time signal 3",
+   38 => "Real-time signal 4",
+   39 => "Real-time signal 5",
+   40 => "Real-time signal 6",
+   41 => "Real-time signal 7",
+   42 => "Real-time signal 8",
+   43 => "Real-time signal 9",
+   44 => "Real-time signal 10",
+   45 => "Real-time signal 11",
+   46 => "Real-time signal 12",
+   47 => "Real-time signal 13",
+   48 => "Real-time signal 14",
+   49 => "Real-time signal 15",
+   50 => "Real-time signal 16",
+   51 => "Real-time signal 17",
+   52 => "Real-time signal 18",
+   53 => "Real-time signal 19",
+   54 => "Real-time signal 20",
+   55 => "Real-time signal 21",
+   56 => "Real-time signal 22",
+   57 => "Real-time signal 23",
+   58 => "Real-time signal 24",
+   59 => "Real-time signal 25",
+   60 => "Real-time signal 26",
+   61 => "Real-time signal 27",
+   62 => "Real-time signal 28",
+   63 => "Real-time signal 29",
+   64 => "Real-time signal 30",
+    );
+
+GetOptions ('d' => \$d, 'n' => \$n, 'f=s' => \$f) or die ("Error in command line arguments\n");
+
+if ($n) {
+    print "N\n";
+    print "$n \n";
+}
+
+open(DATA, "<$f") || die "Failed to open file \"$f\".";
+
+# Process file makefile
+
+while(<DATA>){
+    my $line = $_;
+
+    # Ignore comments and white space
+
+    if ($line =~ m/^([^#]*)#.*/) {
+	if ($d) { print "comment\n"; }
+	$line = "$1\n";
+    }
+    if ($line =~ m/^\s*\n/){
+        if ($d) { print "white space\n"; }
+	next;
+    }
+
+    # Match Commands
+
+    if ($line =~ m/^\t(.*)\n$/){
+        if ($d) { print "Command is ($1)\n"; }
+
+	if (not @previoustargets) {
+	    print "error commands before targets\n";
+	    exit 1;
+	}
+
+	foreach my $target (@previoustargets) {
+	    $commands{$target}[$commandcount] = $1;
+	}
+	$commandcount = $commandcount + 1;
+
+	next;
+    }
+    $commandcount = 0;
+
+    # Match Macros
+
+    if ($line =~ m/^[ ]*([^ =]*)[ ]*=[ ]*(.*)\n$/){
+        if ($d) { print "MACRO ($1) equals VALUE ($2)\n"; }
+	$macros{$1} = $2;
+	next;
+    }
+
+    # Match Targets
+
+    if ($line =~ m/^([^:]*):(.*)\n$/){
+        if ($d) { print "Targets are ($1) && Prereqs are ($2)\n"; }
+	my $read_targets = $1;
+	my @targetarray = ();
+	my $read_prereqs = $2;
+	my $count = 0;
+	my $first_tar = "";
+
+	# Find all targets on a line and put into target array
+
+	while ($read_targets =~ m/^[ ]*([^ ]*)[ ]*(.*)$/) {
+	    if ($1 eq "") {
+		last;
+	    }
+	    if ($first_tar eq "") {
+		$first_tar = $1;
+	    }
+	    if ($firsttarget eq "") {
+		$firsttarget = $1;
+	    }
+	    if ($d) { print "READ TARGET: \"$1\"\n"; }
+	    $firsttargets{$1} = $first_tar;
+	    push @targetarray, $1;
+	    $read_targets = $2;
+	}
+
+	# Find all prereqs on a line and store them in each associated
+	# targets prereqs slots in the targets hash.
+
+	while ($read_prereqs =~ m/^[ ]*([^ ]*)[ ]*(.*)$/) {
+	    if ($1 eq "") {
+		last;
+	    }
+	    if ($d) { print "READ prereq: \"$1\"\n"; }
+	    foreach my $target (@targetarray) {
+		$targets{$target}[$count] = $1;
+	    }
+	    $read_prereqs = $2;
+	    $count = $count + 1;
+	}
+
+	# Keep track of what targets the next commands are attached to
+
+	@previoustargets = @targetarray;
+
+	next;
+    }
+
+    # Detect Invalid Lines
+
+    print "INVALID LINE: $line";
+    exit 1;
+}
+
+#always start with the first target
+
+performTarget ($firsttarget);
+
+close(DATA);
+
+exit 0;
+
+#under contruction
+
+sub replaceMacros {
+    my ($string, $first, $tar) = @_;
+
+    # replaces $$ with $, but only once
+    if (($string =~ m/^.*\$\$.*$/) && ($first == 1)) {
+	$string =~ s/\$\$/\$/;
+	return replaceMacros ($string, 0, $tar);
+    }
+
+    # replaces a single macro right
+    if ($string =~ m/^.*\${(.*)}.*$/) {
+        my $temp = $macros{$1};
+	$string =~ s/\${$1}/$temp/;
+	return replaceMacros ($string, 0, $tar);
+    }
+
+    if (defined ($tar)) {
+	# replaces $@ with the first target
+	if ($string =~ m/^.*\$@.*$/) {
+	    my $temp = $firsttargets{$tar};
+	    $string =~ s/\$@/$temp/;
+	    return replaceMacros ($string, 0, $tar);
+	}
+	
+	# replaces $< with the first prerequisite
+	if ($string =~ m/^.*\$<.*$/) {
+	    my $temp = @{$targets{$tar}}[0];
+	    $string =~ s/\$</$temp/;
+	    return replaceMacros ($string, 0, $tar);
+	}
+    }
+
+    return $string;
+}
+
+sub checkPrereqs {
+    my($tar) = @_;
+
+    my @tarstat = stat $tar;
+
+    foreach my $prereq (@{$targets{$tar}}){
+	$prereq = replaceMacros ($prereq, 1, $tar); # maybe send undef?
+	
+	if (not (exists ($complete{$prereq}))) { # detect circular dependencies?
+	    if (@tarstat) {		
+		my @prereqstat = stat $prereq;
+		if (@prereqstat) {
+		    if ($tarstat[9] < $prereqstat[9]) {
+			performTarget ($prereq);	    
+		    }
+		} else {
+		    performTarget ($prereq);
+		}
+	    } else { # if the target has no file
+		performTarget ($prereq);
+	    }
+	}
+    }
+}    
+
+sub performTarget {
+    my($tar) = @_;
+
+    $tar = replaceMacros ($tar, 1, undef);
+
+    $complete{$tar} = 1;
+
+    checkPrereqs ($tar);
+
+    foreach my $com (@{$commands{$tar}}){
+	my $com = replaceMacros ($com, 1, $tar);
+	print "$com\n";
+	system($com);
+	my $term_signal = $? & 0x7F;
+	my $core_dumped = $? & 0x80;
+	my $exit_status = ($? >> 8) & 0xFF;
+
+	print "$?\n$term_signal\n$core_dumped\n$exit_status\n";
+
+	if (not ($exit_status == 0)) {
+	    if (defined ($strsignal{$term_signal})) {
+		print "Termination on signal $strsignal{$term_signal}\n";
+	    }
+	    if ($core_dumped == 128) { # check correctness
+		print "CORE DUMPED\n";
+	    }
+	    exit $exit_status;
+	}
+    }
+}

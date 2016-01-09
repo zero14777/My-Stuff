@@ -1,0 +1,3 @@
+checksource: line length > 72 characters
+   file "jfmt.java": 5 errors: lines 13, 82, 120, 122--123
+checksource: TOTAL COMPLAINTS: 5

@@ -1,0 +1,7 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting mkstampfiles.c
+* mkstampfiles.c: $Id: mkstampfiles.c,v 1.12 2013-05-17 17:53:22-07 -
+- $
+* gcc -g -O0 -Wall -Wextra -std=gnu99 mkstampfiles.c -o mkstampfiles
+-lm
+* rm -f mkstampfiles.o
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished mkstampfiles.c

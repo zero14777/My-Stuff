@@ -1,0 +1,13 @@
+symbol* getInfo (const string* ident)
+{
+	int i = (theSymbolStack.size() - 1);
+	for(; i >= 0; i--)
+	{
+		auto table_check = theSymbolStack.at(i)->find(ident);
+		if(table_check != theSymbolStack.at(i)->end())
+		{
+			return table_check;//probably wrong but yeah
+		}
+	}
+	fprintf(stderr, "oc: no %s found", ident);
+}

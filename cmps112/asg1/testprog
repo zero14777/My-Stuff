@@ -1,0 +1,25 @@
+;;File: 00-hello-world.sb
+;;   1: # asdfasdf
+;;   2: #
+;;   3: # Classic Hello World program.
+;;   4:
+;;   5: print "Hello, World!"
+(
+(    1           (let testvar 200))
+(    8           (if (< 1 10) hello))
+(    2           (print testvar))
+(    3           (let testvar 3))
+(    4           (print testvar))
+(    5     hello      (print "Hello, World!"))
+(    6           (dim (myarray 5)))
+(    7           (print "dfgsdfgsdfg!"))
+(    5           (input avariable))
+(    8           (print avariable))
+(    8           (print (myarray 3)))
+(    9           (let (myarray 2) 4))
+(    10          (print (myarray 2)))
+(    11          (let (myarray 1) (+ (myarray 2) (* 2 3))))
+(    12          (print (mysarray 1)))
+(    12          (input (myarray 3)))
+(    12          (print (myarray 3)))
+)

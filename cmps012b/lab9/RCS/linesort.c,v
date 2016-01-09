@@ -1,0 +1,70 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2013.12.05.07.05.20;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#include "inssort.h"
+
+void printarray (char **array, size_t nelem) {
+   for (size_t itor = 0; itor < nelem; ++itor) {
+      printf ("%s\n", array[itor]);
+   }
+}
+
+int lineCmp (const void *this, const void *that) {
+   char **thisline = (char **) this;
+   char **thatline = (char **) that;
+   return (strcmp(*thisline, *thatline));// > 0); + 
+    //  (strcmp(thisline, thatline) < 0));
+}
+
+int main (void) {
+   char *array[1000];
+   memset(array, 0, (1000 * sizeof(char *)));
+   char next = (char) fgetc(stdin);
+   size_t lineI = 0;
+   size_t arrayI = 0;
+
+   while(next != EOF){
+      char *buffer = malloc(1024 * sizeof(char));
+      if (next != '\n') {
+         buffer[lineI] = next;
+         do{
+             lineI++;
+             buffer[lineI] = (char) fgetc(stdin);
+         }while(buffer[lineI] != '\n' && buffer[lineI] != EOF);
+         buffer[lineI] = '\0';
+      }
+      array[arrayI] = buffer;
+      next = (char) fgetc(stdin);
+      arrayI++;
+      lineI = 0;
+   }
+
+   inssort (array, arrayI, sizeof(char *), lineCmp);
+   printarray (array, arrayI);
+
+   return EXIT_SUCCESS;
+}
+@

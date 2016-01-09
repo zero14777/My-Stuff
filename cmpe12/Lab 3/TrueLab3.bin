@@ -1,0 +1,77 @@
+0011000010100000
+;Designate that the program starts at x30A0
+
+0101 101 101 1 00000
+;Set R5 to be x0000 by using AND command.
+;R5 will count the number of 1s seen.
+
+0010 010 000001111
+;The offset looks at x30B1 and the LD function loads
+;the information it finds into R2.
+;This program automatically fills x30B1 with x3200.
+;R2 will be used to iterate through the bitstrings.
+
+0010 001 001011101
+;The offset looks at x3100 and the LD function loads
+;the information it finds into R1.
+;R1 will store the number of binary strings to check.
+
+0000 1 1 0 000001011
+;Checks if the last function turned on the negative or zero flags.
+;If either flag is turned on the program skips the next 11 lines.
+;This jump will be made if there are zero or less strings left to check.
+
+0110 000 010 000000
+;Looks for the value stored at the address location stored in
+;R2 with the LDR command, and stores that value into R0.
+;Loads the current bitstring to check into R0
+
+0101 100 100 1 00000
+;Set R4 to be x0000 by using AND command.
+
+0001 100 100 1 00001
+;ADD 1 to R4
+;This and the previous line will always set R4 to x0001
+;R4 is used to check if there is a 1 at each location in
+;the current bitstring.
+
+0101 110 000 0 00 100
+;R6 gets set to R4 AND R0(the current bitstring being checked)
+
+0000 0 1 0 000000001
+;If the previous AND operation turned on the zero flag the program
+;skips the next line.
+;The next line is skipped if no 1 was seen at the checked location.
+
+0001 101 101 1 00001
+;R5 gets set to R5 + 1 with the ADD operation.
+;Count the number of 1's seen.
+
+0001 100 100 0 00 100
+;A left shift is performed on R4 by setting R4 to R4 + R4
+;with the ADD operation.
+
+0000 1 0 1 111111011
+;If the previous operation does not set the zero flag to be true
+;the program jumps up 4 lines.
+
+0001 010 010 1 00001
+;R2 gets set to R2 + 1 with the ADD operation
+;This iterates the bitstring we are looking at.
+
+0001 001 001 1 11111
+;R1 gets set to R1 - 1 with the ADD operation
+;This decrements the number of bitstrings we have left to check.
+
+0000 1 1 1 111110100
+;Under any conditions this line causes the program to jump up 11 lines.
+
+0011 101 001010001
+;Stores the current value in R5 to the current address plus the offset plus 1
+;Stores the number of 1s found to x3101
+
+1111 0000 00100101
+;The HALT TRAP to stop the program
+
+0011001000000000
+;The value x3200, used to load x3200 into R2

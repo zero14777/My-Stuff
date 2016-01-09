@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% block content %}
+{% if not user.is_authenticated %}
+    <!-- Sequence Modern Slider -->
+    <div id="da-slider" class="da-slider">
+      <div class="da-slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>
+                <i>Keep all study</i>
+                <br>
+                <i>materials in the</i>
+                <br>
+                <i>same place!</i>
+              </h2>
+              <p>
+                <i>Save all your flash card decks</i>
+                <br />
+                <i>to your profile.</i>
+              </p>
+              <div class="da-img">
+                <img src="/static/img/StudyingPerson.png" alt="image01" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="da-slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>
+                <i>Share your flashcards</i>
+                <br />
+                <i>with fellow students.</i>
+              </h2>
+              <p>
+                <i>Clone other students' decks to modify</i>
+                <br />
+                <i>them based on your studying needs.</i>
+              </p>
+              <div class="da-img">
+                <img src="/static/img/PeopleSharing.png" alt="image02" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="da-slide">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>
+                <i>Automatically create</i>
+                <br />
+                <i>flashcards from your</i>
+                <br />
+                <i>uploaded notes.</i>
+              </h2>
+              <p>
+                <i>While taking notes in class, simply use</i>
+                <br />
+                <i>"F:" to inidcate the front and "B:" to</i>
+                <br />
+                <i>indicate the back of a flashcard.</i>
+              </p>
+              <div class="da-img">
+                <img src="/static/img/ChillingPerson.png" alt="image03" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="da-arrows">
+        <span class="da-arrows-prev">
+        </span>
+        <span class="da-arrows-next">
+        </span>
+      </nav>
+    </div>
+  {% endif %}
+
+
+  {% if user.is_authenticated %}
+    <!-- Title -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <h3>Your Decks</h3>
+                </div>
+                <div class="col-lg-8 col-sm-8">
+                  <a data-toggle="modal" class="CreateNewDeck" href="#CreateNewDeck">
+                    <div class="pull-right breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay=".6s" data-toggle="tooltip" data-placement="top" title="Create a New Deck">
+                      <i class="fa fa-plus-circle"></i>
+                    </div>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Title -->
+    <!-- Main Container -->
+    <div class="container">
+      <div class="row mar-b-30">
+        <div class="col-md-12">
+          {% for deck in deck_list reversed %}
+          <div id={{deck.deck_id}} class="deck">
+            <div class="image-caption">
+              <a href="/cards/study/?deck_id={{ deck.deck_id }}" class="deck_options label label-info icon" data-toggle="tooltip" data-placement="top" title="Study">
+                <i class="deck_options fa fa-book"></i>
+              </a>
+              <a href="/cards/?deck_id={{ deck.deck_id }}" class="deck_options label magnefig label-info icon" data-toggle="tooltip" data-placement="top" title="Edit Flash Cards">
+                <i class="deck_options fa fa-edit"></i>
+		
+              </a>
+              <a data-toggle="modal" href="#EditDeck" class="EditDeck edit-deck-toggle deck_options label label-info icon" data-toggle="modal" data-placement="top" title="Deck Settings">
+                <i class="deck_options fa fa-gear"></i>
+              </a>
+              <a data-toggle="modal" href="#DeleteDeck" class="DeleteDeck toggle-delete-deck deck_options label label-info icon" data-toggle="tooltip" data-placement="top" title="Delete">
+                <i class="deck_options fa fa-trash-o"></i>
+              </a>
+            </div>
+            <img class="deck" src="{% cycle '/static/img/StackOfFlashCards.png' '/static/img/StackOfFlashCards2.png' '/static/img/StackOfFlashCards3.png' %}"></img>
+            <h6 class="deck_name">{{ deck.deck_name }}</h6>
+            {% if deck.share %}
+            <input class="share-set" type="hidden" name="yes" value="yes">
+            {% else %}
+            <input class="share-set" type="hidden" name="no" value="no">
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <!-- End Main Container -->
+
+
+    <!-- Create Deck Modal -->
+
+    <div aria-hidden="true" aria-labelledby="CreateNewDeck" role="dialog" tabindex="-1" id="CreateNewDeck" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Create A New Deck</h4>
+          </div>
+          <form id="make-deck-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+          <div class="modal-body">
+          <!-- Check for error messages from bad form data -->
+          
+          <p id="make-deck-error"></p>
+          
+          {% for field in form %}
+            {% if field.name == "deck_name" %}
+              <label for="id_deck_name">Deck Name:</label>
+              <input class="form-control" id="id_deck_name" name="{{ field.name}}" type="text">
+            {% elif field.name == "share_flag" %}
+              <label for="id_share_flag">Share With Others:</label>
+              <input id="id_share_flag" name="{{ field.name}}" type="checkbox">
+            {% else %}
+              {{ field.as_hidden }}
+            {% endif %}
+          {% endfor %}
+
+          </div>
+          <div class="modal-footer">
+            <button id="make-deck-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button id="make-deck-submit" class="btn btn-success" type="submit">Make Deck!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+
+    <!-- Edit Deck Modal (Deck Settings) -->
+
+    <div aria-hidden="true" aria-labelledby="EditDeck" role="dialog" tabindex="-1" id="EditDeck" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Deck Settings</h4>
+          </div>
+          <form id="edit-deck-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+          <div class="modal-body">
+          <!-- Check for error messages from bad form data -->
+          
+          <p id="edit-deck-error"></p>
+          
+             
+              {% for field in form %}
+                {% if field.name == "deck_name" %}
+                  <label for="id_deck_name_edit">Deck Name:</label>
+                  <input class="form-control" id="id_deck_name_edit" name="{{ field.name}}" type="text">
+                {% elif field.name == "share_flag" %}
+                  <label for="id_share_flag_edit">Share With Others:</label>
+                  <input id="id_share_flag_edit" name="{{ field.name}}" type="checkbox">
+                {% elif field.name == "user" %}
+                  {{ field.as_hidden }}
+                
+
+                {% endif %}
+                
+              {% endfor %}
+              <input type="hidden" name="edit-deck-id" value="">
+          </div>
+          <div class="modal-footer">
+            <button id="edit-deck-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button id="edit-deck-submit" class="btn btn-success" type="submit">Save Settings!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Delete Deck Modal -->
+    <div aria-hidden="true" aria-labelledby="DeleteDeck" role="dialog" tabindex="-1" id="DeleteDeck" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Delete Deck</h4>
+          </div>
+          <form id="delete-deck-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+            <div class="modal-body">
+              <!-- Check for error messages from bad form data -->
+              <p id="delete-deck-error"></p>
+              Are you sure you want to delete the deck: <span id="delete-deck-name-span"></span>?
+	      <input type="hidden" name="id-deck-id" value="">
+            </div>
+            <div class="modal-footer">
+              <button id="delete-deck-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+              <button id="delete-deck-submit" class="btn btn-success" type="submit">Delete!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+  {% endif %}
+{% endblock %}

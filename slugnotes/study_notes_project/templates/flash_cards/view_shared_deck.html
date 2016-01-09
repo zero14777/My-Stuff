@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Title -->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-4">
+         <h3>{{ deck_name }} by: {{ username }}</h3>
+      </div>
+      <div class="col-lg-8 col-sm-8">
+        <a href="/cards/study/?deck_id={{ orig_deck_id }}"> 
+          <div class="pull-right left-align breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay="1s" data-toggle="tooltip" data-placement="top" title="Study">
+            <i class="breadcrumbs-button fa fa-book"></i>
+          </div>
+        </a>
+        <a data-toggle="modal" class="CloneDeck" href="#CloneDeck">
+          <div class="pull-right breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay=".6s" data-toggle="tooltip" data-placement="top" title="Clone">
+              <i class="fa fa-copy"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Title -->
+
+<!-- Main Container -->
+<div class="container">
+  <div class="row mar-b-30">
+    <div class="col-md-12">
+      {% for card in card_list reversed %}
+        <div id={{card.card_id}} class="small_card">
+          <div class="small_card_content">
+            <p class="card_front">{{card.front}}</p>
+            <p class="card_back hidden">{{card.back|linebreaksbr}}</p>
+          </div>
+          <div class="image-caption image-caption-card">
+            <a class="card_options flip_card label label-info icon" data-toggle="tooltip" data-placement="top" title="Flip">
+              <i class="deck_options fa fa-undo"></i>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- End Main Container -->
+
+<!-- Clone Deck Modal -->
+<div aria-hidden="true" aria-labelledby="CloneNewDeck" role="dialog" tabindex="-1" id="CloneDeck" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Clone Deck</h4>
+      </div>
+      <form id="clone-deck-form" method="POST" class="form-signin" action="" style="visibility: visible;">
+        {% csrf_token %}
+        <div class="modal-body">
+          <!-- Check for error messages from bad form data -->
+          <p id="clone-deck-error"></p>
+          {% for field in clone_form %}
+            {% if field.name == "deck_name" %}
+              <label for="id_deck_name">Deck Name:</label>
+              <input class="form-control" id="id_deck_name" name="{{ field.name}}" type="text">
+            {% elif field.name == "share_flag" %}
+              <label for="id_share_flag">Share With Others:</label>
+              <input id="id_share_flag" name="{{ field.name}}" type="checkbox">
+            
+              
+            {% endif %}
+          {% endfor %}
+          <!-- original deck id -->
+          <input id="clone-deck-id-input" type="hidden" name="clone-deck-id" value="{{ orig_deck_id }}">
+          <input id="user-id" class="curr-user" type="hidden" name="curr-user" value="{{ sign }}">
+        </div>
+        <div class="modal-footer">
+          <button id="clone-deck-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+          <button id="clone-deck-submit" class="btn btn-success" type="submit">Clone Deck!</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- End Modal -->
+
+{% endblock %}

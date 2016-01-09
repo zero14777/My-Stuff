@@ -1,0 +1,101 @@
+README file for HEAP ADT
+
+The intstack ADT contains the following files:
+README          This documentation file
+heap.h          The header file that defines the heapHndl data type and the functions
+                of the heap ADT.
+heap.c          The implementation of the heap ADT
+heapDriver.c    A driver program for the heap ADT that tests the ADT's functionality
+heapSort.h      The header file that defines the HeapSort function
+heapSort.c      A simple program that accepts a set of ints and then uses the heap
+                ADT to sort the int into ascending order
+insertionSort.h The header file that defines the InsertionSort function
+insertionSort.c A simple program that uses the insertion sort algorithm to sort a set 
+                of ints into ascending order
+sortPrint.c     A driver program that uses insertionSort and heapSort to sort and then
+                print out the data in a given file.
+sortComp.c      A driver program that gives the amount of time it takes, in seconds,
+                sort the data in a given file with insertionSort and heapSort
+Makefile        A makefile that complies the module and driver programs
+                It makes heapDriver, sortPrint, sortComp, heap.o, heapDriver.o,
+                sortPrint.o, sortComp.o, insertionSort.o, and heapSort.o
+
+Experiment results
+Heap sort appears to be much more efficient than insertion sort for sorting
+large int arrays. For small arrays both algorithms sort extremely quickly,
+but there is a notable difference in the sorting speed for arrays of 10000 or
+more ints.
+
+For the 100000 int tests the time insertion sort took varied by about .1 second
+from test to test for the same input files.
+
+100 ints:
+
+To sort an array of 100 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 100 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 100 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+1000 ints:
+
+To sort an array of 1000 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 1000 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 1000 ints:
+Insertion sort took 0.000000 seconds.
+Heap sort took 0.000000 seconds.
+
+5000 ints:
+
+To sort an array of 5000 ints:
+Insertion sort took 0.040000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 5000 ints:
+Insertion sort took 0.040000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 5000 ints:
+Insertion sort took 0.040000 seconds.
+Heap sort took 0.000000 seconds.
+
+10000 ints:
+
+To sort an array of 10000 ints:
+Insertion sort took 0.180000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 10000 ints:
+Insertion sort took 0.170000 seconds.
+Heap sort took 0.000000 seconds.
+
+To sort an array of 10000 ints:
+Insertion sort took 0.180000 seconds.
+Heap sort took 0.100000 seconds.
+
+100000 ints:
+
+To sort an array of 100000 ints:
+Insertion sort took 17.860001 seconds.
+Heap sort took 0.030000 seconds.
+
+To sort an array of 100000 ints:
+Insertion sort took 17.850000 seconds.
+Heap sort took 0.030000 seconds.
+
+To sort an array of 100000 ints:
+Insertion sort took 17.910000 seconds.
+Heap sort took 0.030000 seconds.
+

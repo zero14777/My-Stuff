@@ -1,0 +1,3 @@
+checksource: missing newline at end of line
+   file "Makefile": 1 errors: line 51
+checksource: TOTAL COMPLAINTS: 1

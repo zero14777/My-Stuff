@@ -1,0 +1,33 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.10.24.21.28.58;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@This directory contains starter code for your project and a
+Makefile which can be used to build it.  Begin by copying this
+directory int your private volume before beginning work.
+
+The Perl program is not part of your project, but is a reference
+implementation.  Your program should produce the same output,
+except possibly for minor variations in the format of the error
+messages.
+
+$Id: README,v 1.1 2013-01-24 19:22:48-08 - - $
+@

@@ -1,0 +1,7 @@
+partnercheck: ./PARTNER: format OK:
+user    = jrbrower
+uid     = 36489
+gecos   = James Robert Anderson Brower
+home    = /afs/cats.ucsc.edu/users/q/jrbrower
+shell   = /bin/bash
+

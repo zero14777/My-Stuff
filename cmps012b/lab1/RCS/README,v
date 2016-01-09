@@ -1,0 +1,43 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.10.03.22.48.39;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.03.22.37.00;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@Peter Greer-Berezovsky
+pbgreerb
+be-linux27.lt.ucsc.edu
+All source code provided by Wesley Mackey
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 4
+a4 1
+
+@

@@ -1,0 +1,96 @@
+oc: double initialization of variable a
+oc: variable declaration of a is assigned an invalid type
+oc: double declaration of function foo
+oc: invalid type: binary +
+oc: variable declaration of x is assigned an invalid type
+oc: no b found
+oc: ident b not found
+oc: Failed to locate symbol
+oc: no f found
+oc: ident f not found
+oc: f function does not exist
+oc: no f found
+oc: ident f not found
+oc: no x found
+oc: ident x not found
+oc: no y found
+oc: ident y not found
+oc: Failed to locate symbol
+oc: no z found
+oc: ident z not found
+oc: f function does not exist
+oc: no bar found
+oc: ident bar not found
+oc: Failed to locate symbol
+oc: no b found
+oc: ident b not found
+oc: no c found
+oc: ident c not found
+oc: no d found
+oc: ident d not found
+oc: Failed to locate identifier
+oc: Failed to locate identifier
+oc: operands of '=' aren't compatible
+oc: no test found
+oc: ident test not found
+oc: no abc found
+oc: ident abc not found
+oc: no def found
+oc: ident def not found
+oc: Failed to locate symbol
+oc: no ghi found
+oc: ident ghi not found
+oc: Failed to locate symbol
+oc: Failed to locate identifier
+oc: no this found
+oc: ident this not found
+oc: invalid type: *
+oc: Failed to locate symbol
+oc: invalid type: binary +
+oc: no b found
+oc: ident b not found
+oc: Failed to locate symbol
+oc: expression in while must be a bool
+oc: no f found
+oc: ident f not found
+oc: no f found
+oc: ident f not found
+oc: Failed to locate symbol
+oc: Failed to locate identifier
+oc: returned value does not matchfunction return type
+oc: no i found
+oc: ident i not found
+oc: Variable i not declared
+oc: no b found
+oc: ident b not found
+oc: no j found
+oc: ident j not found
+oc: Variable b not declared
+oc: operands of '=' aren't valid
+oc: operands of '=' aren't compatible
+oc: no b found
+oc: ident b not found
+oc: Failed to locate identifier
+oc: no b found
+oc: ident b not found
+oc: Failed to locate symbol
+oc: expression in while must be a bool
+oc: no f found
+oc: ident f not found
+oc: no x found
+oc: ident x not found
+oc: f function does not exist
+oc: no b found
+oc: ident b not found
+oc: Failed to locate symbol
+oc: expression in while must be a bool
+oc: no y found
+oc: ident y not found
+oc: Failed to locate identifier
+oc: no f found
+oc: ident f not found
+oc: no y found
+oc: ident y not found
+oc: no z found
+oc: ident z not found
+oc: f function does not exist

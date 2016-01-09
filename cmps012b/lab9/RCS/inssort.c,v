@@ -1,0 +1,48 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2013.12.05.07.24.28;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: $
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+#include "inssort.h"
+
+void inssort (void *array, size_t nelem, size_t size, 
+             int (*compare) (const void *, const void *)) {
+   char *charArray = (char *) array;
+   char *copy = malloc(size);
+   for (size_t sorted = 1; sorted < nelem; ++sorted) {
+      char *slot = charArray + (sorted * size);
+      copy = memcpy(copy, slot, size);
+      for (; slot > charArray; slot = slot - size) {
+         char *slotprev = slot - size;
+         int cmp = compare (copy, slotprev);
+         if (cmp > 0)  break;
+         slot = memcpy (slot, slotprev, size);
+      }
+      slot = memcpy (slot, copy, size);
+   }
+   free(copy);
+}
+@

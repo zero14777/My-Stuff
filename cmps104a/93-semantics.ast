@@ -1,0 +1,40 @@
+ROOT "" (0.0.0) {0}        
+|  VARDECL "=" (2.4.8) {0}  
+|  |  ARRAY "[]" (2.4.3) {0} array  
+|  |  |  INT "int" (2.4.0) {0} int 
+|  |  |  DECLID "a" (2.4.6) {0} int array variable lval 
+|  |  NULL "null" (2.4.10) {0} null const 
+|  VARDECL "=" (2.5.8) {0}  
+|  |  ARRAY "[]" (2.5.3) {0} array  
+|  |  |  INT "int" (2.5.0) {0} int 
+|  |  |  DECLID "b" (2.5.6) {0} int array variable lval 
+|  |  NULL "null" (2.5.10) {0} null const 
+|  VARDECL "=" (2.6.6) {0}  
+|  |  INT "int" (2.6.0) {0} int 
+|  |  |  DECLID "c" (2.6.4) {0} int variable lval 
+|  |  '+' "+" (2.6.10) {0}  
+|  |  |  IDENT "a" (2.6.8) {0} int array variable lval (2.4.6) 
+|  |  |  IDENT "b" (2.6.12) {0} int array variable lval (2.5.6) 
+|  FUNCTION "" (2.7.4) {0}   
+|  |  ARRAY "[]" (2.7.4) {0} array  
+|  |  |  VOID "void" (2.7.0) {0} 
+|  |  |  DECLID "f" (2.7.7) {0} array 
+|  |  PARAMLIST "(" (2.7.8) {0} 
+|  |  BLOCK "{" (2.7.11) {0} 
+|  BLOCK ";" (2.7.13) {0} 
+|  VARDECL "=" (2.8.7) {0}  
+|  |  VOID "void" (2.8.0) {0} void 
+|  |  |  DECLID "n" (2.8.5) {0} void variable lval 
+|  |  NULL "null" (2.8.9) {0} null const 
+|  VARDECL "=" (2.9.7) {0}  
+|  |  BOOL "bool" (2.9.0) {0} bool 
+|  |  |  DECLID "x" (2.9.5) {0} bool variable lval 
+|  |  LT "<" (2.9.11) {0}  
+|  |  |  IDENT "a" (2.9.9) {0} int array variable lval (2.4.6) 
+|  |  |  IDENT "b" (2.9.13) {0} int array variable lval (2.5.6) 
+|  VARDECL "=" (2.10.7) {0}  
+|  |  BOOL "bool" (2.10.0) {0} bool 
+|  |  |  DECLID "y" (2.10.5) {0} bool variable lval 
+|  |  EQ "==" (2.10.10) {0} bool vreg  
+|  |  |  IDENT "a" (2.10.9) {0} int array variable lval (2.4.6) 
+|  |  |  IDENT "b" (2.10.12) {0} int array variable lval (2.5.6) 

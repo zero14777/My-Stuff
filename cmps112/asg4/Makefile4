@@ -1,0 +1,5 @@
+all : %.o
+	echo all
+
+%.o :
+	echo OUT

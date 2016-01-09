@@ -1,0 +1,17 @@
+!@#$%^&*()_+|~
+"Double quotes too?"
+$40.66
+$Id: line.data,v 1.1 2012-03-08 18:53:47-08 - - $
+1004.3e9
+1234567890-=\`
+7.2
+88.9
+<Angle brackets are earlier.>
+HELLO WORLD
+Lines are printed, one per line of output.
+Note that output should be in lexicographic order.
+This is a test file for linesort.
+[Brackets come in the proper place.]
+``What about quotation marks?''
+foo bar baz qux
+hello world

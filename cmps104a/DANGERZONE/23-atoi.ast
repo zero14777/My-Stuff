@@ -1,0 +1,213 @@
+ROOT "" (0.0.0) {0}               
+|  PROTOTYPE "" (4.23.0) {0}  
+|  |  VOID "void" (4.23.0) {0} void 
+|  |  |  DECLID "__assert_fail" (4.23.5) {0} void 
+|  |  PARAMLIST "(" (4.23.19) {0}   
+|  |  |  STRING "string" (4.23.20) {1} string 
+|  |  |  |  DECLID "expr" (4.23.27) {1} string 
+|  |  |  STRING "string" (4.23.33) {1} string 
+|  |  |  |  DECLID "file" (4.23.40) {1} string 
+|  |  |  INT "int" (4.23.46) {1} int 
+|  |  |  |  DECLID "line" (4.23.50) {1} int 
+|  PROTOTYPE "" (4.24.0) {0}  
+|  |  VOID "void" (4.24.0) {0} void 
+|  |  |  DECLID "putb" (4.24.5) {0} void 
+|  |  PARAMLIST "(" (4.24.10) {0} 
+|  |  |  BOOL "bool" (4.24.11) {2} bool 
+|  |  |  |  DECLID "b" (4.24.16) {2} bool 
+|  PROTOTYPE "" (4.25.0) {0}  
+|  |  VOID "void" (4.25.0) {0} void 
+|  |  |  DECLID "putc" (4.25.5) {0} void 
+|  |  PARAMLIST "(" (4.25.10) {0} 
+|  |  |  CHAR "char" (4.25.11) {3} char 
+|  |  |  |  DECLID "c" (4.25.16) {3} char 
+|  PROTOTYPE "" (4.26.0) {0}  
+|  |  VOID "void" (4.26.0) {0} void 
+|  |  |  DECLID "puti" (4.26.5) {0} void 
+|  |  PARAMLIST "(" (4.26.10) {0} 
+|  |  |  INT "int" (4.26.11) {4} int 
+|  |  |  |  DECLID "i" (4.26.15) {4} int 
+|  PROTOTYPE "" (4.27.0) {0}  
+|  |  VOID "void" (4.27.0) {0} void 
+|  |  |  DECLID "puts" (4.27.5) {0} void 
+|  |  PARAMLIST "(" (4.27.10) {0} 
+|  |  |  STRING "string" (4.27.11) {5} string 
+|  |  |  |  DECLID "s" (4.27.18) {5} string 
+|  PROTOTYPE "" (4.28.0) {0}  
+|  |  VOID "void" (4.28.0) {0} void 
+|  |  |  DECLID "endl" (4.28.5) {0} void 
+|  |  PARAMLIST "(" (4.28.10) {0} 
+|  PROTOTYPE "" (4.29.0) {0}  
+|  |  INT "int" (4.29.0) {0} int 
+|  |  |  DECLID "getc" (4.29.4) {0} int 
+|  |  PARAMLIST "(" (4.29.9) {0} 
+|  PROTOTYPE "" (4.30.0) {0}  
+|  |  STRING "string" (4.30.0) {0} string 
+|  |  |  DECLID "getw" (4.30.7) {0} string 
+|  |  PARAMLIST "(" (4.30.12) {0} 
+|  PROTOTYPE "" (4.31.0) {0}  
+|  |  STRING "string" (4.31.0) {0} string 
+|  |  |  DECLID "getln" (4.31.7) {0} string 
+|  |  PARAMLIST "(" (4.31.13) {0} 
+|  PROTOTYPE "" (4.32.6) {0}  
+|  |  ARRAY "[]" (4.32.6) {0} array  
+|  |  |  STRING "string" (4.32.0) {0} string 
+|  |  |  DECLID "getargv" (4.32.9) {0} string array 
+|  |  PARAMLIST "(" (4.32.17) {0} 
+|  PROTOTYPE "" (4.33.0) {0}  
+|  |  VOID "void" (4.33.0) {0} void 
+|  |  |  DECLID "exit" (4.33.5) {0} void 
+|  |  PARAMLIST "(" (4.33.10) {0} 
+|  |  |  INT "int" (4.33.11) {11} int 
+|  |  |  |  DECLID "status" (4.33.15) {11} int 
+|  FUNCTION "" (5.5.0) {0}   
+|  |  INT "int" (5.5.0) {0} int 
+|  |  |  DECLID "atoi" (5.5.4) {0} int 
+|  |  PARAMLIST "(" (5.5.9) {0} 
+|  |  |  STRING "string" (5.5.10) {12} string 
+|  |  |  |  DECLID "str" (5.5.17) {12} string 
+|  |  BLOCK "{" (5.5.22) {0}       
+|  |  |  BLOCK "{" (5.6.3) {12} 
+|  |  |  |  IF "if" (5.6.4) {13}  
+|  |  |  |  |  '!' "!" (5.6.8) {0} bool vreg 
+|  |  |  |  |  |  NE "!=" (5.6.14) {13} bool vreg  
+|  |  |  |  |  |  |  IDENT "str" (5.6.10) {13} string variable param lval (5.5.10) 
+|  |  |  |  |  |  |  NULL "null" (5.6.17) {13} null const 
+|  |  |  |  |  CALL "(" (5.6.38) {13} (4.23.0)    
+|  |  |  |  |  |  IDENT "__assert_fail" (5.6.24) {0} void function (4.23.0) 
+|  |  |  |  |  |  STRINGCON ""str != null"" (5.6.39) {13} string const 
+|  |  |  |  |  |  STRINGCON ""23-atoi.oc"" (5.6.54) {13} string const 
+|  |  |  |  |  |  INTCON "6" (5.6.68) {13} int const 
+|  |  |  BLOCK ";" (5.6.72) {12} 
+|  |  |  VARDECL "=" (5.7.12) {12}  
+|  |  |  |  BOOL "bool" (5.7.3) {12} bool 
+|  |  |  |  |  DECLID "neg" (5.7.8) {12} bool variable lval 
+|  |  |  |  FALSE "false" (5.7.14) {12} bool const 
+|  |  |  VARDECL "=" (5.8.11) {12}  
+|  |  |  |  INT "int" (5.8.3) {12} int 
+|  |  |  |  |  DECLID "num" (5.8.7) {12} int variable lval 
+|  |  |  |  INTCON "0" (5.8.13) {12} int const 
+|  |  |  VARDECL "=" (5.9.13) {12}  
+|  |  |  |  INT "int" (5.9.3) {12} int 
+|  |  |  |  |  DECLID "digit" (5.9.7) {12} int variable lval 
+|  |  |  |  INTCON "0" (5.9.15) {12} int const 
+|  |  |  IF "if" (5.10.3) {12}  
+|  |  |  |  NE "!=" (5.10.14) {12} bool vreg  
+|  |  |  |  |  INDEX "[" (5.10.10) {0} char lval vaddr  
+|  |  |  |  |  |  IDENT "str" (5.10.7) {13} string variable param lval (5.5.10) 
+|  |  |  |  |  |  INTCON "0" (5.10.11) {12} int const 
+|  |  |  |  |  CHARCON "'\0'" (5.10.17) {12} char const 
+|  |  |  |  BLOCK "{" (5.10.23) {12}    
+|  |  |  |  |  IF "if" (5.11.6) {15}  
+|  |  |  |  |  |  EQ "==" (5.11.17) {15} bool vreg  
+|  |  |  |  |  |  |  INDEX "[" (5.11.13) {0} char lval vaddr  
+|  |  |  |  |  |  |  |  IDENT "str" (5.11.10) {13} string variable param lval (5.5.10) 
+|  |  |  |  |  |  |  |  INTCON "0" (5.11.14) {15} int const 
+|  |  |  |  |  |  |  CHARCON "'-'" (5.11.20) {15} char const 
+|  |  |  |  |  |  BLOCK "{" (5.11.25) {15}  
+|  |  |  |  |  |  |  '=' "=" (5.12.15) {16}  
+|  |  |  |  |  |  |  |  IDENT "digit" (5.12.9) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  '+' "+" (5.12.23) {16} int vreg  
+|  |  |  |  |  |  |  |  |  IDENT "digit" (5.12.17) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  |  INTCON "1" (5.12.25) {16} int const 
+|  |  |  |  |  |  |  '=' "=" (5.13.13) {16}  
+|  |  |  |  |  |  |  |  IDENT "neg" (5.13.9) {12} bool variable lval (5.7.8) 
+|  |  |  |  |  |  |  |  TRUE "true" (5.13.15) {16} bool const 
+|  |  |  |  |  VARDECL "=" (5.15.18) {15}  
+|  |  |  |  |  |  BOOL "bool" (5.15.6) {15} bool 
+|  |  |  |  |  |  |  DECLID "contin" (5.15.11) {15} bool variable lval 
+|  |  |  |  |  |  TRUE "true" (5.15.20) {15} bool const 
+|  |  |  |  |  WHILE "while" (5.16.6) {15}  
+|  |  |  |  |  |  IDENT "contin" (5.16.13) {15} bool variable lval (5.15.11) 
+|  |  |  |  |  |  BLOCK "{" (5.16.21) {15} 
+|  |  |  |  |  |  |  IFELSE "if" (5.17.9) {17}   
+|  |  |  |  |  |  |  |  EQ "==" (5.17.24) {17} bool vreg  
+|  |  |  |  |  |  |  |  |  INDEX "[" (5.17.16) {0} char lval vaddr  
+|  |  |  |  |  |  |  |  |  |  IDENT "str" (5.17.13) {13} string variable param lval (5.5.10) 
+|  |  |  |  |  |  |  |  |  |  IDENT "digit" (5.17.17) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  |  CHARCON "'\0'" (5.17.27) {17} char const 
+|  |  |  |  |  |  |  |  BLOCK "{" (5.17.33) {17} 
+|  |  |  |  |  |  |  |  |  '=' "=" (5.18.19) {18}  
+|  |  |  |  |  |  |  |  |  |  IDENT "contin" (5.18.12) {15} bool variable lval (5.15.11) 
+|  |  |  |  |  |  |  |  |  |  FALSE "false" (5.18.21) {18} bool const 
+|  |  |  |  |  |  |  |  BLOCK "{" (5.19.15) {17}   
+|  |  |  |  |  |  |  |  |  VARDECL "=" (5.20.19) {19}  
+|  |  |  |  |  |  |  |  |  |  CHAR "char" (5.20.12) {19} char 
+|  |  |  |  |  |  |  |  |  |  |  DECLID "c" (5.20.17) {19} char variable lval 
+|  |  |  |  |  |  |  |  |  |  INDEX "[" (5.20.24) {0} char lval vaddr  
+|  |  |  |  |  |  |  |  |  |  |  IDENT "str" (5.20.21) {13} string variable param lval (5.5.10) 
+|  |  |  |  |  |  |  |  |  |  |  IDENT "digit" (5.20.25) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  |  '=' "=" (5.21.18) {19}  
+|  |  |  |  |  |  |  |  |  |  IDENT "digit" (5.21.12) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  |  |  '+' "+" (5.21.26) {19} int vreg  
+|  |  |  |  |  |  |  |  |  |  |  IDENT "digit" (5.21.20) {12} int variable lval (5.9.7) 
+|  |  |  |  |  |  |  |  |  |  |  INTCON "1" (5.21.28) {19} int const 
+|  |  |  |  |  |  |  |  |  IFELSE "if" (5.22.12) {19}   
+|  |  |  |  |  |  |  |  |  |  LT "<" (5.22.18) {19} bool vreg  
+|  |  |  |  |  |  |  |  |  |  |  IDENT "c" (5.22.16) {19} char variable lval (5.20.17) 
+|  |  |  |  |  |  |  |  |  |  |  CHARCON "'0'" (5.22.20) {19} char const 
+|  |  |  |  |  |  |  |  |  |  '=' "=" (5.22.32) {19}  
+|  |  |  |  |  |  |  |  |  |  |  IDENT "contin" (5.22.25) {15} bool variable lval (5.15.11) 
+|  |  |  |  |  |  |  |  |  |  |  FALSE "false" (5.22.34) {19} bool const 
+|  |  |  |  |  |  |  |  |  |  IFELSE "if" (5.23.17) {19}   
+|  |  |  |  |  |  |  |  |  |  |  GT ">" (5.23.23) {19} bool vreg  
+|  |  |  |  |  |  |  |  |  |  |  |  IDENT "c" (5.23.21) {19} char variable lval (5.20.17) 
+|  |  |  |  |  |  |  |  |  |  |  |  CHARCON "'9'" (5.23.25) {19} char const 
+|  |  |  |  |  |  |  |  |  |  |  '=' "=" (5.23.37) {19}  
+|  |  |  |  |  |  |  |  |  |  |  |  IDENT "contin" (5.23.30) {15} bool variable lval (5.15.11) 
+|  |  |  |  |  |  |  |  |  |  |  |  FALSE "false" (5.23.39) {19} bool const 
+|  |  |  |  |  |  |  |  |  |  |  '=' "=" (5.24.21) {19}  
+|  |  |  |  |  |  |  |  |  |  |  |  IDENT "num" (5.24.17) {12} int variable lval (5.8.7) 
+|  |  |  |  |  |  |  |  |  |  |  |  '-' "-" (5.24.40) {19} int vreg  
+|  |  |  |  |  |  |  |  |  |  |  |  |  '+' "+" (5.24.32) {19} int vreg  
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  '*' "*" (5.24.27) {19} int vreg  
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  IDENT "num" (5.24.23) {12} int variable lval (5.8.7) 
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  INTCON "10" (5.24.29) {19} int const 
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  ORD "ord" (5.24.34) {19} int vreg 
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  IDENT "c" (5.24.38) {19} char variable lval (5.20.17) 
+|  |  |  |  |  |  |  |  |  |  |  |  |  ORD "ord" (5.24.42) {19} int vreg 
+|  |  |  |  |  |  |  |  |  |  |  |  |  |  CHARCON "'0'" (5.24.46) {19} char const 
+|  |  |  |  |  IF "if" (5.27.6) {15}  
+|  |  |  |  |  |  IDENT "neg" (5.27.10) {12} bool variable lval (5.7.8) 
+|  |  |  |  |  |  '=' "=" (5.27.19) {15}  
+|  |  |  |  |  |  |  IDENT "num" (5.27.15) {12} int variable lval (5.8.7) 
+|  |  |  |  |  |  |  NEG "-" (5.27.21) {15} int vreg 
+|  |  |  |  |  |  |  |  IDENT "num" (5.27.23) {12} int variable lval (5.8.7) 
+|  |  |  RETURN "return" (5.29.3) {12} 
+|  |  |  |  IDENT "num" (5.29.10) {12} int variable lval (5.8.7) 
+|  VARDECL "=" (5.32.9) {0}  
+|  |  INT "int" (5.32.0) {0} int 
+|  |  |  DECLID "argi" (5.32.4) {0} int variable lval 
+|  |  INTCON "0" (5.32.11) {0} int const 
+|  VARDECL "=" (5.33.14) {0}  
+|  |  ARRAY "[]" (5.33.6) {0} array  
+|  |  |  STRING "string" (5.33.0) {0} string 
+|  |  |  DECLID "argv" (5.33.9) {0} string array variable lval 
+|  |  CALL "(" (5.33.24) {0} (4.32.6) 
+|  |  |  IDENT "getargv" (5.33.16) {0} string array function (4.32.6) 
+|  WHILE "while" (5.34.0) {0}  
+|  |  NE "!=" (5.34.18) {0} bool vreg  
+|  |  |  INDEX "[" (5.34.11) {0} string lval vaddr  
+|  |  |  |  IDENT "argv" (5.34.7) {0} string array variable lval (5.33.9) 
+|  |  |  |  IDENT "argi" (5.34.12) {0} int variable lval (5.32.4) 
+|  |  |  NULL "null" (5.34.21) {0} null const 
+|  |  BLOCK "{" (5.34.27) {0}     
+|  |  |  VARDECL "=" (5.35.14) {20}  
+|  |  |  |  STRING "string" (5.35.3) {20} string 
+|  |  |  |  |  DECLID "arg" (5.35.10) {20} string variable lval 
+|  |  |  |  INDEX "[" (5.35.20) {0} string lval vaddr  
+|  |  |  |  |  IDENT "argv" (5.35.16) {0} string array variable lval (5.33.9) 
+|  |  |  |  |  IDENT "argi" (5.35.21) {0} int variable lval (5.32.4) 
+|  |  |  CALL "(" (5.36.8) {20} (4.27.0)  
+|  |  |  |  IDENT "puts" (5.36.3) {0} void function (4.27.0) 
+|  |  |  |  IDENT "arg" (5.36.9) {20} string variable lval (5.35.10) 
+|  |  |  CALL "(" (5.37.8) {20} (4.27.0)  
+|  |  |  |  IDENT "puts" (5.37.3) {0} void function (4.27.0) 
+|  |  |  |  STRINGCON "" = "" (5.37.9) {20} string const 
+|  |  |  CALL "(" (5.38.8) {20} (4.26.0)  
+|  |  |  |  IDENT "puti" (5.38.3) {0} void function (4.26.0) 
+|  |  |  |  CALL "(" (5.38.14) {20} (5.5.0)  
+|  |  |  |  |  IDENT "atoi" (5.38.9) {0} int function (5.5.0) 
+|  |  |  |  |  IDENT "arg" (5.38.15) {20} string variable lval (5.35.10) 
+|  |  |  CALL "(" (5.39.8) {20} (4.28.0) 
+|  |  |  |  IDENT "endl" (5.39.3) {0} void function (4.28.0) 

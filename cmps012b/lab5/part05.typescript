@@ -1,0 +1,16 @@
+Script started on Mon Nov  4 12:44:34 2013
+[?1034hbash-1$ mk list1.c
+CSOURCE=list1.c EXECBIN=list1
++ cid + list1.c
++ checksource list1.c
++ gcc -g -O0 -Wall -Wextra -std=gnu99 list1.c -o list1 -lm
+list1.c: In function 'main':
+list1.c:15: warning: implicit declaration of function 'malloc'
+list1.c:15: warning: incompatible implicit declaration of built-in function 'malloc'
+list1.c:12: warning: unused parameter 'argc'
++ set +x
+============================================================
+bash-2$ exit
+exit
+
+Script done on Mon Nov  4 12:44:46 2013

@@ -1,0 +1,7 @@
+oc: invalid type: binary +
+oc: variable declaration of c is assigned an invalid type
+oc: Invalid array definitionoc: variable declaration of n is assigned an invalid type
+oc: left operand of < is not primitive
+oc: right operand of < is not primitive
+oc: operands of < are not primitive
+oc: variable declaration of x is assigned an invalid type

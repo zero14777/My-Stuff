@@ -1,0 +1,35 @@
+bison --defines=yyparse.h --output=yyparse.cpp parser.y
+parser.y: conflicts: 36 shift/reduce, 19 reduce/reduce
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c yyparse.cpp
+flex -o yylex.cpp scanner.l
+flex version 2.5.35 usage statistics:
+  scanner options: -dsvI8 -Cem -oyylex.cpp
+  305/2000 NFA states
+  118/1000 DFA states (697 words)
+  50 rules
+  Compressed tables always back-up
+  1/40 start conditions
+  174 epsilon states, 75 double epsilon states
+  21/100 character classes needed 250/500 words of storage, 0 reused
+  2260 state/nextstate pairs created
+  320/1940 unique/duplicate transitions
+  128/1000 base-def entries created
+  342/2000 (peak 681) nxt-chk entries created
+  40/2500 (peak 460) template nxt-chk entries created
+  103 empty table entries
+  10 protos created
+  10 templates created, 82 uses
+  46/256 equivalence classes created
+  4/256 meta-equivalence classes created
+  1 (8 saved) hash collisions, 205 DFAs equal
+  0 sets of reallocations needed
+  1242 total table entries needed
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c yylex.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c lyutils.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c astree.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c auxlib.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c stringset.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c main.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c trevorsal.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 -c symboltable.cpp
+g++ -g -O0 -Wall -Wextra -std=gnu++11 yyparse.o yylex.o lyutils.o astree.o auxlib.o stringset.o main.o trevorsal.o symboltable.o -o oc

@@ -1,0 +1,81 @@
+comment
+white space
+white space
+MACRO (MKFILE) equals VALUE (Makefile)
+MACRO (JAVASRC) equals VALUE (queue.java qtest.java)
+MACRO (CLASSES) equals VALUE (queue.class qtest.class)
+MACRO (JARCLASSES) equals VALUE (${CLASSES} queue\$$emptyexn.class queue\$$node.class)
+MACRO (JARFILE) equals VALUE (qtest)
+MACRO (MAINCLASS) equals VALUE (qtest)
+MACRO (SOURCES) equals VALUE (${JAVASRC} ${MKFILE})
+white space
+Targets are (all ) && Prereqs are ( ${JARFILE})
+READ TARGET: "all"
+READ ARG: "${JARFILE}"
+white space
+Targets are (${JARFILE} ) && Prereqs are ( ${CLASSES})
+READ TARGET: "${JARFILE}"
+READ ARG: "${CLASSES}"
+Command is (echo Main-class: ${MAINCLASS} >Manifest)
+READ ARG: "echo"
+READ ARG: "Main-class:"
+READ ARG: "${MAINCLASS}"
+READ ARG: ">Manifest"
+Command is (jar cvfm ${JARFILE} Manifest ${JARCLASSES})
+READ ARG: "jar"
+READ ARG: "cvfm"
+READ ARG: "${JARFILE}"
+READ ARG: "Manifest"
+READ ARG: "${JARCLASSES}"
+Command is (chmod +x ${JARFILE})
+READ ARG: "chmod"
+READ ARG: "+x"
+READ ARG: "${JARFILE}"
+Command is (- rm Manifest)
+READ ARG: "-"
+READ ARG: "rm"
+READ ARG: "Manifest"
+white space
+Targets are (%.class ) && Prereqs are ( %.java)
+READ TARGET: "%.class"
+READ ARG: "%.java"
+Command is (cid + $<)
+READ ARG: "cid"
+READ ARG: "+"
+READ ARG: "$<"
+Command is (javac $<)
+READ ARG: "javac"
+READ ARG: "$<"
+white space
+Targets are (clean ) && Prereqs are ()
+READ TARGET: "clean"
+Command is (- rm ${JARCLASSES})
+READ ARG: "-"
+READ ARG: "rm"
+READ ARG: "${JARCLASSES}"
+white space
+Targets are (spotless ) && Prereqs are ( clean)
+READ TARGET: "spotless"
+READ ARG: "clean"
+Command is (- rm ${JARFILE})
+READ ARG: "-"
+READ ARG: "rm"
+READ ARG: "${JARFILE}"
+white space
+Targets are (ci ) && Prereqs are ( ${SOURCES})
+READ TARGET: "ci"
+READ ARG: "${SOURCES}"
+Command is (cid + ${SOURCES})
+READ ARG: "cid"
+READ ARG: "+"
+READ ARG: "${SOURCES}"
+white space
+Targets are (test ) && Prereqs are ( ${JARFILE})
+READ TARGET: "test"
+READ ARG: "${JARFILE}"
+Command is (./${JARFILE} * | cat -n)
+READ ARG: "./${JARFILE}"
+READ ARG: "*"
+READ ARG: "|"
+READ ARG: "cat"
+READ ARG: "-n"

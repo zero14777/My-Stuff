@@ -1,0 +1,60 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2013.10.13.08.10.33;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.10.13.08.07.33;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@as completed using pair programming.
+Partner:  Peter Greer-Berezovsky (pbgreerb@@ucsc.edu)
+Partner:  James Brower (jrbrower@@ucsc.edu)
+
+We acknowledge that each partner in a programming pair should
+drive roughly 50% of the time the pair is working together, and
+at most 25% of an individual's effort for an assignment should
+be spent working alone.  Any work done by a solitary programmer
+must be reviewed by the partner.  The object is to work
+together, learning from each other, not to divide the work into
+two pieces with each partner working on a different piece.
+
+Peter Greer-Berezovsky spent 0 hours working alone.
+James Brower spent 0 hours working alone.
+We spent 4 hours working together.
+Peter Greer-Berezovsky spent 2 hours driving.
+James Brower Babbage spent 2 hours driving.
+
+$Id: PARTNER,v 1.1 2013-10-13 01:07:25-07 - - $
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 19
+a19 3
+$Id: README,v 1.1 2013-09-24 14:36:52-07 - - $
+Peter Greer-Berezovsky pbgreerb
+James Robert Anderson Brower jrbrower
+@

@@ -1,0 +1,4 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting segfault.c
+*
+* gcc -g -O0 -Wall -Wextra -std=gnu99 segfault.c -o segfault -lm
+* gcc: segfault.c: No such file or directory

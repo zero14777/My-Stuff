@@ -1,0 +1,65 @@
+ROOT "" (0.0.0) {0}            
+|  PROTOTYPE "" (4.23.0) {0}  
+|  |  VOID "void" (4.23.0) {0} void 
+|  |  |  DECLID "__assert_fail" (4.23.5) {0} void 
+|  |  PARAMLIST "(" (4.23.19) {0}   
+|  |  |  STRING "string" (4.23.20) {1} string 
+|  |  |  |  DECLID "expr" (4.23.27) {1} string 
+|  |  |  STRING "string" (4.23.33) {1} string 
+|  |  |  |  DECLID "file" (4.23.40) {1} string 
+|  |  |  INT "int" (4.23.46) {1} int 
+|  |  |  |  DECLID "line" (4.23.50) {1} int 
+|  PROTOTYPE "" (4.24.0) {0}  
+|  |  VOID "void" (4.24.0) {0} void 
+|  |  |  DECLID "putb" (4.24.5) {0} void 
+|  |  PARAMLIST "(" (4.24.10) {0} 
+|  |  |  BOOL "bool" (4.24.11) {2} bool 
+|  |  |  |  DECLID "b" (4.24.16) {2} bool 
+|  PROTOTYPE "" (4.25.0) {0}  
+|  |  VOID "void" (4.25.0) {0} void 
+|  |  |  DECLID "putc" (4.25.5) {0} void 
+|  |  PARAMLIST "(" (4.25.10) {0} 
+|  |  |  CHAR "char" (4.25.11) {3} char 
+|  |  |  |  DECLID "c" (4.25.16) {3} char 
+|  PROTOTYPE "" (4.26.0) {0}  
+|  |  VOID "void" (4.26.0) {0} void 
+|  |  |  DECLID "puti" (4.26.5) {0} void 
+|  |  PARAMLIST "(" (4.26.10) {0} 
+|  |  |  INT "int" (4.26.11) {4} int 
+|  |  |  |  DECLID "i" (4.26.15) {4} int 
+|  PROTOTYPE "" (4.27.0) {0}  
+|  |  VOID "void" (4.27.0) {0} void 
+|  |  |  DECLID "puts" (4.27.5) {0} void 
+|  |  PARAMLIST "(" (4.27.10) {0} 
+|  |  |  STRING "string" (4.27.11) {5} string 
+|  |  |  |  DECLID "s" (4.27.18) {5} string 
+|  PROTOTYPE "" (4.28.0) {0}  
+|  |  VOID "void" (4.28.0) {0} void 
+|  |  |  DECLID "endl" (4.28.5) {0} void 
+|  |  PARAMLIST "(" (4.28.10) {0} 
+|  PROTOTYPE "" (4.29.0) {0}  
+|  |  INT "int" (4.29.0) {0} int 
+|  |  |  DECLID "getc" (4.29.4) {0} int 
+|  |  PARAMLIST "(" (4.29.9) {0} 
+|  PROTOTYPE "" (4.30.0) {0}  
+|  |  STRING "string" (4.30.0) {0} string 
+|  |  |  DECLID "getw" (4.30.7) {0} string 
+|  |  PARAMLIST "(" (4.30.12) {0} 
+|  PROTOTYPE "" (4.31.0) {0}  
+|  |  STRING "string" (4.31.0) {0} string 
+|  |  |  DECLID "getln" (4.31.7) {0} string 
+|  |  PARAMLIST "(" (4.31.13) {0} 
+|  PROTOTYPE "" (4.32.6) {0}  
+|  |  ARRAY "[]" (4.32.6) {0} array  
+|  |  |  STRING "string" (4.32.0) {0} string 
+|  |  |  DECLID "getargv" (4.32.9) {0} string array 
+|  |  PARAMLIST "(" (4.32.17) {0} 
+|  PROTOTYPE "" (4.33.0) {0}  
+|  |  VOID "void" (4.33.0) {0} void 
+|  |  |  DECLID "exit" (4.33.5) {0} void 
+|  |  PARAMLIST "(" (4.33.10) {0} 
+|  |  |  INT "int" (4.33.11) {11} int 
+|  |  |  |  DECLID "status" (4.33.15) {11} int 
+|  CALL "(" (5.6.5) {0} (4.27.0)  
+|  |  IDENT "puts" (5.6.0) {0} void function (4.27.0) 
+|  |  STRINGCON ""Hello, world!\n"" (5.6.6) {0} string const 

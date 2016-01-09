@@ -1,0 +1,8 @@
+lrwxr-xr-x. 1 pbgreerb users 72 Oct 10 13:58 lab2 -> /afs/cats.ucsc.edu/users/s/pbgreerb/12b/Labs-cmps012m/lab2u-unix-shells/
+  File: `lab2' -> `/afs/cats.ucsc.edu/users/s/pbgreerb/12b/Labs-cmps012m/lab2u-unix-shells/'
+  Size: 72        	Blocks: 2          IO Block: 4096   symbolic link
+Device: 15h/21d	Inode: 2044068232  Links: 1
+Access: (0755/lrwxr-xr-x)  Uid: (35937/pbgreerb)   Gid: (  101/   users)
+Access: 2013-10-10 13:58:14.000000000 -0700
+Modify: 2013-10-10 13:58:14.000000001 -0700
+Change: 2013-10-10 13:58:14.000000000 -0700

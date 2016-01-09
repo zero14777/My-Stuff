@@ -1,0 +1,20 @@
+README file for the Dictionary ADT module and the related LibrarySearch program
+
+The intstack ADT contains the following files:
+README          This documentation file.
+List.h          The header file that defines the ListHndl data type, the Node data type,
+                and the functions of the List ADT.
+List.c          An implementation of the List ADT that stores generic void * pointers 
+                in each node.
+Listdr.c        A driver program for the List ADT that tests the ADT's functionality.
+Dictionary.h    The header file that defines the DictHndl data type, the KeyNode data
+                type, and the functions of the Dictionary ADT.
+Dictionary.c    An implementation of the Dictionary ADT that uses the List ADT.
+Dictionarydr.c  A driver program for the Dictionary ADT that tests the ADT's functionality.
+LibrarySearch.c A driver program that uses the Dictionary ADT to to create and fill a
+                Dictionary with books and the library IDs of the libraries that have those
+                books in stock. The Dictionary can then be searched and will print out the
+                Library IDs of any libraries that have the searched books in stock.
+Makefile        A makefile that complies multiple module and driver programs.
+                It makes Listdr, Dictionarydr, LibrarySearch, List.o, Dictionary.o,
+                Listdr.o, Dictionarydr.o, and LibrarySearch.o.

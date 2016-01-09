@@ -1,0 +1,266 @@
+head	1.8;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.8
+date	2013.11.17.09.20.14;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2013.11.17.08.37.26;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2013.11.17.08.04.49;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2013.11.17.08.02.21;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2013.11.17.07.56.30;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2013.11.17.07.54.03;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2013.11.17.07.48.31;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2013.11.17.07.36.35;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@-
+@
+text
+@// $Id: main.c,v 1.7 2013-11-17 00:37:26-08 - - $
+// Peter Greer-Berezovsky pbgreerb
+//
+// NAME
+//   catqueue
+//
+// SYNOPSIS
+//   Takes input lines from stdin or a file/s and then prints the 
+//   contents to stdout.
+//
+
+#include <assert.h>
+#include <errno.h>
+#include <libgen.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "queue.h"
+
+char *execname = NULL;
+int exit_status = EXIT_SUCCESS;
+
+void putinqueue (queue *the_queue, FILE *input, char *filename) {
+   char buffer[1024];
+   for (int linenr = 1; ; ++linenr) {
+      char *linepos = fgets (buffer, sizeof buffer, input);
+      if (linepos == NULL) break;
+      linepos = strchr (buffer, '\n');
+      if (linepos == NULL) {
+         fflush (NULL);
+         fprintf (stderr, "%s: %s[%d]: unterminated line\n",
+                  execname, filename, linenr);
+         fflush (NULL);
+         exit_status = EXIT_FAILURE;
+      }else {
+         *linepos = '\0';
+      }
+      linepos = strdup (buffer);
+      assert (linepos != NULL);
+      insert_queue (the_queue, linepos);
+   }
+}
+
+void putfileinqueue (queue *the_queue, char *filename) {
+   FILE *input = fopen (filename, "r");
+   if (input == NULL) {
+      fflush (NULL);
+      fprintf (stderr, "%s: %s: %s\n",
+               execname, filename, strerror (errno));
+      fflush (NULL);
+      exit_status = EXIT_FAILURE;
+   }else {
+      putinqueue (the_queue, input, filename);
+      fclose (input);
+   }
+}
+
+int main (int argc, char **argv) {
+   execname = basename (argv[0]);
+   queue *the_queue = new_queue();
+
+   if (argc < 2) {
+      putinqueue (the_queue, stdin, "-");
+   }else {
+      for (int argi = 1; argi < argc; ++argi) {
+         if (strcmp (argv[argi], "-") == 0) {
+            putinqueue (the_queue, stdin, "-");
+         }else {
+            putfileinqueue (the_queue, argv[argi]);
+         }
+      }
+   }
+
+   while (! isempty_queue (the_queue)) {
+      char *string = remove_queue(the_queue);
+      printf ("%s\n", string);
+      free (string);
+   }
+
+   free(the_queue);
+
+   return exit_status;
+}
+
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 10
+a10 1
+// $Id: main.c,v 1.6 2013-11-17 00:04:49-08 - - $
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.5 2013-11-17 00:02:21-08 - - $
+d67 3
+a69 1
+      printf ("%s\n", remove_queue (the_queue));
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.4 2013-11-16 23:56:30-08 - - $
+a49 1
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.3 2013-11-16 23:54:03-08 - - $
+d71 2
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.2 2013-11-16 23:48:31-08 - - $
+a70 2
+   //free(the_queue);
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.c,v 1.10 2013-02-15 17:17:42-08 - - $
+d71 1
+a71 1
+   free(the_queue);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 7
+// $Id: main.c,v 1.10 2013-03-13 13:36:20-07 - - $
+
+//
+// Silly main program which just creates an intx box, puts a
+// number in it, gets it back out, and deletes the box.
+// Run with bcheck to verify no memory leaks.
+//
+d3 1
+a8 2
+#include <sys/time.h>
+#include <time.h>
+d10 1
+a10 1
+#include "intx.h"
+d13 22
+d36 15
+a51 1
+   (void) argc; // warning: unused parameter 'argc'
+d53 17
+d71 1
+a71 11
+   // Declare the box and initialize it.
+   intx *box = new_intx();
+   printf ("box = %p\n", box);
+
+   // Perform a couple of operations on it.
+   put_intx (box, 1024);
+   printf ("box value is %d\n", get_intx (box));
+
+   // Free up the box and set the handle to NULL to avoid a dangle.
+   free_intx (box);
+   box = NULL;
+d73 1
+a73 1
+   return EXIT_SUCCESS;
+@

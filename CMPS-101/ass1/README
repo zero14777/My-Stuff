@@ -1,0 +1,12 @@
+README file for intstack ADT
+NOTE:  use "./decToBinary" to run the program
+
+The intstack ADT contains the following files:
+README          This documentation file
+myinclude.h     A set of libraries and definitions used by the intstack ADT
+intstack.h      The header file describing the adt operations
+intstack.c      The implementation of the intstack ADT
+decToBinary.c   A simple program that uses the intstack ADT to convert a 
+                non-negative decimal integer into its binary form
+Makefile        A makefile that complies the module and driver program
+                it makes intstack.o, decToBinary.o, and decToBinary

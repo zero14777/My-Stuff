@@ -1,0 +1,5 @@
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting showlink.c
+* showlink.c: $Id: showlink.c,v 1.3 2013-05-17 17:56:07-07 - - $
+* gcc -g -O0 -Wall -Wextra -std=gnu99 showlink.c -o showlink -lm
+* rm -f showlink.o
+* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished showlink.c

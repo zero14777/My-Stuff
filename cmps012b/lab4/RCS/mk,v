@@ -1,0 +1,29 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2013.11.01.03.03.11;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@#!/bin/sh
+# $Id: $
+# Peter Greer-Berezovsky
+gcc -g -O0 -Wall -Wextra -std=gnu99 cmatch.c -o cmatch
+
+chmod +x cmatch.c
+@

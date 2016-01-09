@@ -1,0 +1,11 @@
+a (2.7.6) {0} int array variable lval 
+foo (2.9.0) {0} void function 
+
+foo (2.11.0) {0} void function 
+   a (2.11.13) {2} int array variable param lval 
+   b (2.11.22) {2} int array variable param lval 
+
+   x (2.11.33) {2} int variable lval 
+foo (2.12.0) {0} struct "foo"
+   a (2.12.13) int field {foo} 
+   b (2.12.20) int field {foo} 

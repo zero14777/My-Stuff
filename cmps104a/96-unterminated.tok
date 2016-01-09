@@ -1,0 +1,20 @@
+# 1 "96-unterminated.oc"
+# 1 "<command-line>"
+# 1 "96-unterminated.oc"
+   2   4.000  262 TOK_STRING       (string)
+   2   4.007  279 TOK_IDENT        (t)
+   2   4.009   61 '='              (=)
+   2   4.016   59 ';'              (;)
+   2   5.000  262 TOK_STRING       (string)
+   2   5.007  279 TOK_IDENT        (s)
+   2   5.009   61 '='              (=)
+   2   6.000  260 TOK_CHAR         (char)
+   2   6.005  279 TOK_IDENT        (c)
+   2   6.007   61 '='              (=)
+   2   6.011   59 ';'              (;)
+   2   7.000  279 TOK_IDENT        (s)
+   2   7.002   61 '='              (=)
+   2   8.000  279 TOK_IDENT        (s)
+   2   8.002   61 '='              (=)
+   2  10.000  261 TOK_INT          (int)
+   2  10.012   59 ';'              (;)

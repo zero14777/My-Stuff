@@ -1,0 +1,4 @@
+two-dimensional
+single-player
+gameplay-puzzle-game
+top-down-perspective

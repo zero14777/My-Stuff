@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Deck Name Title -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                    <h3>{{ deck_name }}</h3>
+                </div>
+                <div class="col-lg-8 col-sm-8">		  
+                  <a href="/cards/study/?deck_id={{ deck_id }}"> 
+                    <div class="pull-right left-align breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay="1.4s" data-toggle="tooltip" data-placement="top" title="Study">
+                      <i class="breadcrumbs-button fa fa-book"></i>
+                    </div>
+                  </a>
+                  <a class="UploadCards" data-toggle="modal" href="#UploadCards">
+                    <div class="pull-right breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay="1s" data-toggle="tooltip" data-placement="top" title="Upload Flash Cards">
+                      <i class="fa fa-arrow-circle-up"></i>
+                    </div>
+                  </a>
+                  <a data-toggle="modal" class="CreateNewCard" href="#CreateNewCard">
+                    <div class="pull-right breadcrumbs-button round-five wow pulse" data-wow-duration="2s" data-wow-delay=".6s" data-toggle="tooltip" data-placement="top" title="Create a New Card">
+                      <i class="fa fa-plus-circle"></i>
+                    </div>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Title -->
+
+    <!-- Main Container -->
+    <div class="container">
+      <div class="row mar-b-30">
+        <div class="col-md-12">
+          {% for card in card_list reversed %}
+          <div id={{card.card_id}} class="small_card">
+            <div class="small_card_content">
+              <p class="card_front">{{card.front|linebreaksbr}}</p>
+              <p class="card_back hidden">{{card.back|linebreaksbr}}</p>
+            </div>
+            <div class="image-caption image-caption-card">
+              <a class="card_options flip_card label label-info icon" data-toggle="tooltip" data-placement="top" title="Flip">
+                <i class="deck_options fa fa-undo"></i>
+              </a>
+              <a data-toggle="modal" href="#EditCard" class="EditCard get-card-id edit-card card_options label magnefig label-info icon" data-toggle="tooltip" data-placement="top" title="Edit Flash Card">
+                <i class="deck_options fa fa-pencil"></i>
+              </a>
+              <a data-toggle="modal" href="#DeleteCard" class="DeleteCard get-card-id card_options label label-info icon" data-toggle="tooltip" data-placement="top" title="Delete">
+                <i class="card_options fa fa-trash-o"></i>
+              </a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- End Main Container -->
+
+    <!-- Upload Cards Modal -->
+    <div aria-hidden="true" aria-labelledby="UploadCards" role="dialog" tabindex="-1" id="UploadCards" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Upload Flash Cards</h4>
+          </div>
+          <div class="format-help">
+            <div class="panel-group wow fadeInUp" id="accordion" data-wow-duration="2s">
+                        <div class="panel panel-default">
+                            <div class="panel-heading panel-heading-faq">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    What format should the notes be in?
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body panel-faq">
+                                    <p>- Just take your notes as usual<br>F: If you want text to be on the front of a flashcard prefix the line with a "F:"<br>B: If you want text to be on the back of a flashcard prefix the line with a "B:"<br>- All lines that don't start with "F:" or "B:" are ignored.<br>B: You can have multiple "B:"'s following an "F:" and they will be placed onto the back of the same flashcard!<br>F: You can copy/paste this text into the box below and upload.<br>B: You will see some beautiful sample flash cards.</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+          </div>
+          <form id="upload-notes-form" class="form-signin" action="" method="POST" style="visibility: visible;">
+            {% csrf_token %}
+            <div class="modal-body">
+              <p id="upload-cards-error"></p>
+              {% for field in upload_form %}
+                {% if field.name == "file" %}
+                <label for="id_file_upload">Upload flash cards from a ".txt" file</label>
+                <div class="file_upload btn btn-success">
+                  <span>Choose a File</span>
+                  <input id="id_file_upload" name="{{ field.name }}" type="file" class="upload" />
+                </div>
+                <input id="selected_file" placeholder="No File Chosen" disabled="disabled" />
+                {% elif field.name == "text" %}
+                  <br>
+                  <br>
+                  <h4>OR</h4>
+                  <br>
+                  <label for="id_text_upload">Upload flash cards by copying and pasting text</label>
+                  <textarea class="form-control" id="id_text_upload" name="{{ field.name }}"></textarea>
+                {% else %}
+                  {{ field.as_hidden }}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="modal-footer">
+              <button id="upload-cards-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+              <button id="upload-cards-submit" class="btn btn-success" type="submit">Upload</button>
+            </div>
+          </form> 
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    
+    <!-- Edit Card Modal -->
+    <div aria-hidden="true" aria-labelledby="EditCard" role="dialog" tabindex="-1" id="EditCard" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Edit Flash Card</h4>
+          </div>
+          <form id="edit-card-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+          <div class="modal-body">
+            <!-- Check for error messages from bad form data -->
+            <p id="edit-card-error"></p>
+            <!-- {{form}} -->
+            {% for field in form %} <!-- front back deck -->
+              {% if field.name == "front" %}
+                <label for="id_card_front_edit">{{field.label}}</label>
+                <textarea class="form-control" id="id_card_front_edit" name="{{ field.name }}"></textarea>
+              {% elif field.name == "back" %}
+                <label for="id_card_back_edit">{{field.label}}</label>
+                <textarea class="form-control" id="id_card_back_edit" name="{{ field.name }}"></textarea>
+              {% else %}
+                {{ field.as_hidden }}
+              {% endif %}
+            {% endfor %}
+            <input type="hidden" name="id-card-id" value="">	
+          </div>
+          <div class="modal-footer">
+            <button id="edit-card-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button id="edit-card-submit" class="btn btn-success" type="submit">Save Changes!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Delete Card Modal -->
+    <div aria-hidden="true" aria-labelledby="DeleteCard" role="dialog" tabindex="-1" id="DeleteCard" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Delete Flash Card</h4>
+          </div>
+          <form id="delete-card-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+          <div class="modal-body">
+            <!-- Check for error messages from bad form data -->
+            <p id="delete-card-error"></p>
+            Are you sure you want to delete this card?
+          </div>
+          <div class="modal-footer">
+            <button id="delete-card-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <button id="delete-card-submit" class="btn btn-success" type="submit">Delete!</button>
+	    <input type="hidden" name="id-card-id" value="">
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- New Card Modal -->
+    <div aria-hidden="true" aria-labelledby="CreateNewCard" role="dialog" tabindex="-1" id="CreateNewCard" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Create A New Card</h4>
+          </div>
+          <form id="make-card-form" method="POST" class="form-signin" action="" style="visibility: visible;"> {% csrf_token %}
+          <div class="modal-body">
+          	<!-- Check for error messages from bad form data -->
+          	<p id="make-card-error"></p>
+          	{{form}}
+          </div>
+          <div class="modal-footer">
+            <button id="make-card-cancel" data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+            <!-- submit new card form -->
+            <button id="make-card-submit" class="btn btn-success" type="submit" >Make Card!</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    
+{% endblock %}
