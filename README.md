@@ -3,6 +3,8 @@ Various things I have worked on. Rip my OS assignments that seem lost to the voi
 
 Teams I worked with
 
+----------------------------------
+
 Team Power Rangers - Slug Notes
 
 Sara Woods (Product Owner)
@@ -14,6 +16,8 @@ James Brower
 Ethan Vadai
 
 Peter Greer
+
+-----------------------------------
 
 Team Space Shooter - Warp
 
