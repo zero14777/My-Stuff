@@ -1,8 +1,0 @@
-stringset[   1]:   10159970873491820195 0x12042e8->"1"
-stringset[   5]:   11975142853768712282 0x1204338->""test1.in""
-stringset[   6]:   10014013504511836749 0x12043e8->"a=b*c+d*e;"
-stringset[   7]:    4038071199236763861 0x1204298->"#"
-stringset[   8]:   13985887974751908322 0x12043c8->""<command-line>""
-load_factor = 0.455
-bucket_count = 11
-max_bucket_size = 1
