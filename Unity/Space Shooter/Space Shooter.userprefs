@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\random_rotator.cs" Line="6" Column="22" />
+      <File FileName="Assets\Scripts\player_control.cs" Line="28" Column="41" />
+      <File FileName="Assets\Scripts\mover.cs" Line="4" Column="15" />
+      <File FileName="Assets\Scripts\asteroidCollisions.cs" Line="29" Column="20" />
+      <File FileName="Assets\Scripts\Delayed_destruction.cs" Line="10" Column="34" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="33" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

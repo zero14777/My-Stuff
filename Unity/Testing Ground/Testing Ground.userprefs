@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Isometric_Camera.cs">
+    <Files>
+      <File FileName="Assets\Scripts\fps_player_controls.cs" Line="50" Column="117" />
+      <File FileName="Assets\Scripts\Camera_Movement.cs" Line="25" Column="18" />
+      <File FileName="Assets\Scripts\Isometric_Camera.cs" Line="26" Column="21" />
+      <File FileName="Assets\Scripts\Player_Control.cs" Line="89" Column="39" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
