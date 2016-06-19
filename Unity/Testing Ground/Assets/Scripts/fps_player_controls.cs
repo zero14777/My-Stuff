@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 //My first attempt at creating a first person control setup
 //Rotation is handled by the Camera_Movment script
@@ -9,15 +10,15 @@ public class fps_player_controls : MonoBehaviour {
 	public float ground_accel;
 	public float air_drift;
 	public float hops;
-	public float max_speed; // Currently not yet enforced
+	public float max_speed;
 	public GameObject player;
 	public GameObject feet;
 	public Text display_input;
 	public Camera player_camera;
 	public GameObject fireball;
 
-	private bool grounded, walking;
-	private Vector3 footbox;
+	private bool grounded, walking, stunned, grappling;
+	private Vector3 footbox, grappling_hook;
 	private Rigidbody player_rigidbody;
 	private AudioSource jump, land, walk;
 	private Vector3 move;
@@ -37,18 +38,45 @@ public class fps_player_controls : MonoBehaviour {
 
 	void Update() {
 		input ();
-		Debug.Log (player_rigidbody.velocity.magnitude);
+		//Debug.Log (player_rigidbody.velocity.magnitude);
 	}
 
 	void FixedUpdate(){
-		movement ();
+		if (!stunned && !grappling) {
+			movement ();
+		} else if (grappling) {
+			move = grappling_hook - player_rigidbody.position;
+			if (move.magnitude < 1) {
+				grappling = false;
+			}
+			move.Normalize ();
+			player_rigidbody.AddForce (move * max_speed, ForceMode.Impulse);
+		}
 	}
 
 	//This method is meant to handle all input apart from input related to movement
 	void input () {
+		// An example of instantiating new objects. In this case a fireball that gets shot out in the direction the player is looking
 		if (Input.GetKeyDown ("f")) {
 			GameObject fireball_inst = Instantiate (fireball, player_camera.transform.position, player_camera.transform.rotation) as GameObject;
 			fireball_inst.GetComponent<Rigidbody> ().AddForce (player_camera.transform.forward * 2000);
+		}
+		// An example of raycasting and collecting information on the first object hit. By using hit.collider.gameObject you could
+		// cause the object hit to react however desired.
+		if (Input.GetKeyDown ("g")) {
+			RaycastHit hit;
+			if (Physics.Raycast (player_camera.transform.position, player_camera.transform.forward, out hit, 100.0f)) {
+				display_input.text = "Hit " + hit.collider.name + " at distance " + hit.distance.ToString();
+				//Debug.DrawRay (player_camera.transform.position, player_camera.transform.forward);
+			}
+		}
+		// This is a display of using raycasting to implement a simple grappling hook
+		if (Input.GetKeyDown ("h")) {
+			RaycastHit hit;
+			if (Physics.Raycast (player_camera.transform.position, player_camera.transform.forward, out hit, 100.0f)) {
+				grappling = true;
+				grappling_hook = hit.point;
+			}
 		}
 	}
 

@@ -2,10 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\fps_player_controls.cs">
     <Files>
-      <File FileName="Assets\Scripts\fps_player_controls.cs" Line="90" Column="4" />
+      <File FileName="Assets\Scripts\fps_player_controls.cs" Line="52" Column="22" />
       <File FileName="Assets\Scripts\Camera_Movement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Isometric_Camera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player_Control.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
