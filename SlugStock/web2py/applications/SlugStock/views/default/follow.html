@@ -1,0 +1,83 @@
+<div class="col-xs-12 col-sm-6 col-md-1 col-lg-1" >
+     <h4>{{=follow[0]}}</h4>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-11 col-lg-11" >
+    <h4>${{=follow[1]}} | You Own <input class="following" type="number" name={{=follow[3]}} min="0" max="1000000000" value={{=follow[5]}}> of this stock | <a href="{{=URL('delete_follow', args=follow[3])}}">Delete</a>
+    </h4>
+</div>
+    <p>
+        Create a Limit:
+        <form id="limit_form">
+            <input name="new_limit" id="new_limit" type="number" step="0.01" value="0">
+        </form>
+        <a href="javascript:;" onclick="ajax('{{=URL('default', 'add_limit', args=[follow[3], follow[0]])}}', ['new_limit'], 'OpenData')">Submit</a>
+    </p>
+
+    {{for subscription in follow[2]:}}
+    <p>
+        Limit: <input class="subscription" type="number" step="0.01" name={{=subscription.id}} min="-1000000000" max="1000000000" value={{=subscription.value}}> <a href="javascript:;" onclick="ajax('{{=URL('default', 'delete_subscription', args=[follow[3], subscription.id])}}', [], 'OpenData')">Delete</a>
+    </p>
+    {{pass}}
+
+    <p>
+        <a href="javascript:;" onclick="ajax('{{=URL('default', 'add_note', args=[follow[3], follow[0]])}}', [], 'OpenData')">Create a Note</a>
+    </p>
+
+    {{for note in follow[4]:}}
+        <p>
+            note: <input class="note" type="text" name={{=note.id}} value={{=note.note}}> <a href="javascript:;" onclick="ajax('{{=URL('default', 'delete_note', args=[follow[3], note.id])}}', [], 'OpenData')">Delete</a>
+        </p>
+    {{pass}}
+    <p>
+        Press buttons for charts!
+</p>
+    <button type="button"  onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'two_week_graph', args=follow[0])}}', ['id'], 'Graph');">
+        2 Weeks
+    </button>
+
+    <button type="button" onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'month_graph', args=follow[0])}}', ['id'], 'Graph');">
+        1 Month
+    </button>
+
+    <button type="button" onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'three_month_graph', args=follow[0])}}', ['id'], 'Graph');">
+        3 Month
+    </button>
+
+    <button type="button" onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'one_year_graph', args=follow[0])}}', ['id'], 'Graph');">
+        1 Year
+    </button>
+
+    <button type="button" onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'five_year_graph', args=follow[0])}}', ['id'], 'Graph');">
+       5 Year
+    </button>
+
+    <button type="button" onclick="jQuery('#id').val('{{=follow[3]}}');
+    ajax('{{=URL('default', 'max_graph', args=follow[0])}}', ['id'], 'Graph');">
+        Max
+    </button>
+
+    <span id="Graph">
+    </span>
+
+<script>
+    $(".following").change(function(){
+                   ajax('/SlugStock/default/update_follow/' + $(this).attr('name') + '/' + $(this).val(), ['id'], 'NetWorth');
+        });
+</script>
+
+<script>
+    $(".subscription").change(function(){
+                   ajax('/SlugStock/default/update_subsc/' + $(this).attr('name') + '/' + $(this).val());
+        });
+</script>
+
+<script>
+    $(".note").change(function(){
+                   ajax('/SlugStock/default/update_note/' + $(this).attr('name') + '/' + $(this).val());
+        });
+</script>

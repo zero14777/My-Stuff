@@ -1,0 +1,85 @@
+Loaded suite hw1-unittests
+Started
+F
+===============================================================================
+Failure:
+test1(TestSimpleNumber)
+hw1-unittests.rb:8:in `test1'
+      5:  
+      6:   def test1
+      7:     res = Unirest.get('http://localhost:49160/hello')
+  =>  8:     assert_equal(res.raw_body, 'Hello world!', 'GET on the hello resource did not execute successfully')
+      9:   end
+     10: 
+     11:  
+GET on the hello resource did not execute successfully
+<"Hello World!\n"> expected but was
+<"Hello world!">
+
+diff:
+? Hello World!
+?       w     
+===============================================================================
+..F
+===============================================================================
+Failure:
+test3(TestSimpleNumber)
+hw1-unittests.rb:20:in `test3'
+     17:  
+     18:   def test3
+     19:     res = Unirest.get('http://localhost:49160/echo?msg=HolyShitItWorked')
+  => 20:     assert_equal(res.raw_body, 'HolyShitItWorked', 'GET echo with a message did not execute successfully')
+     21:   end
+     22:     
+     23:  
+GET echo with a message did not execute successfully
+<"HolyShitItWorked\n"> expected but was
+<"HolyShitItWorked">
+
+diff:
+  HolyShitItWorked
+===============================================================================
+....F
+===============================================================================
+Failure:
+test8(TestSimpleNumber)
+hw1-unittests.rb:52:in `test8'
+     49:  
+     50:   def test8
+     51:     res = Unirest.get('http://localhost:49160/echo?msg=')
+  => 52:     assert_equal(res.raw_body, '', 'GET echo without a msg should have output a blank.')
+     53:   end
+     54: 
+     55:  
+GET echo without a msg should have output a blank.
+<"\n"> expected but was
+<"">
+===============================================================================
+F
+===============================================================================
+Failure:
+test9(TestSimpleNumber)
+hw1-unittests.rb:58:in `test9'
+     55:  
+     56:   def test9
+     57:     res = Unirest.get('http://localhost:49160/hello?msg=AnyColourYouLike')
+  => 58:     assert_equal(res.raw_body, 'Hello world!', 'GET hello with a message did not execute successfully')
+     59:   end
+     60:     
+     61:  
+GET hello with a message did not execute successfully
+<"Hello World!\n"> expected but was
+<"Hello world!">
+
+diff:
+? Hello World!
+?       w     
+===============================================================================
+
+
+Finished in 0.031416304 seconds.
+
+10 tests, 12 assertions, 4 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+60% passed
+
+318.31 tests/s, 381.97 assertions/s

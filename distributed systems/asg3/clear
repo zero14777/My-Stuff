@@ -1,0 +1,4 @@
+docker kill `docker ps -a -q`
+docker rmi -f student/hw3
+docker build -t student/hw3 .
+#./run

@@ -1,0 +1,14 @@
+sudo docker run -p 49160:12345 --net=my-net --ip=10.0.0.20 -e 'IP=10.0.0.20' \
+ -e 'PORT=12345' -e 'MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349' -e PYTHONUNBUFFERED=0 -d student/hw3
+
+sudo docker run -p 49161:12346 --net=my-net --ip=10.0.0.21 -e 'IP=10.0.0.21' \
+ -e 'PORT=12346' -e 'MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349' -e PYTHONUNBUFFERED=0 -d student/hw3
+
+sudo docker run -p 49162:12347 --net=my-net --ip=10.0.0.22 -e 'IP=10.0.0.22' \
+ -e 'PORT=12347' -e 'MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349' -e PYTHONUNBUFFERED=0 -d student/hw3
+
+sudo docker run -p 49163:12348 --net=my-net --ip=10.0.0.23 -e 'IP=10.0.0.23' \
+ -e 'PORT=12348' -e 'MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349' -e PYTHONUNBUFFERED=0 -d student/hw3
+
+sudo docker run -p 49164:12349 --net=my-net --ip=10.0.0.24 -e 'IP=10.0.0.24' \
+ -e 'PORT=12349' -e 'MEMBERS=10.0.0.20:12345,10.0.0.21:12346,10.0.0.22:12347,10.0.0.23:12348,10.0.0.24:12349' -e PYTHONUNBUFFERED=0 -d student/hw3
