@@ -1,5 +1,7 @@
 /*
  * 
+ CREATED IN MY FRESHMAN YEAR at UCSC
+ 
  Program 2 - Adventure Game
  
  This program is a text based adventure game that takes place in a cave.
