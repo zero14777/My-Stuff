@@ -122,7 +122,7 @@ ig.module('game.aStar')
 							Math.pow((current.y + pathEntity.size.y - entities[i].pos.y + (entities[i].size.y/2)), 2)) < 
 							(entities[i].moveRadius + pathEntity.moveRadius)){
 							if(entities[i].name === "PLAYER"){
-								tempGScore += 60000;
+								tempGScore += 60000; // So that ships would not be so could path through eachother if absolutly needed
 								break;
 							}
 						}
