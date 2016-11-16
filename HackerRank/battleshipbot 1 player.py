@@ -6,14 +6,10 @@ def findnewship (Matrix, MatrixSize):
         for col in range(0, (MatrixSize)):
             if Matrix[row][col] == '-':
                 viability = 0
-                viability = viability + checkspace (Matrix, MatrixSize, (row - 2), col)
                 viability = viability + checkspace (Matrix, MatrixSize, (row - 1), col)
                 viability = viability + checkspace (Matrix, MatrixSize, (row + 1), col)
-                viability = viability + checkspace (Matrix, MatrixSize, (row + 2), col)
-                viability = viability + checkspace (Matrix, MatrixSize, row, (col - 2))
                 viability = viability + checkspace (Matrix, MatrixSize, row, (col - 1))
                 viability = viability + checkspace (Matrix, MatrixSize, row, (col + 1))
-                viability = viability + checkspace (Matrix, MatrixSize, row, (col + 2))
                 if viability > most_viable[0]:
                     most_viable = (viability, (row, col))
     return str(most_viable[1][0]) + " " + str(most_viable[1][1])
