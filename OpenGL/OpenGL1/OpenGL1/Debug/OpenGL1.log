@@ -1,3 +1,7 @@
-﻿  Main.cpp
+﻿  Display.cpp
+c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(17): warning C4018: '<': signed/unsigned mismatch
+c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(23): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(24): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(25): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
   OpenGL1.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\OpenGL1\Debug\OpenGL1.exe
   OpenGL1.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\OpenGL1\Debug\OpenGL1.pdb (Partial PDB)

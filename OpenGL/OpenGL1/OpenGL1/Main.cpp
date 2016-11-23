@@ -2,45 +2,24 @@
 #include <GL\glew.h>
 #include <GL\freeglut.h>
 #include <iostream>
+#include "Display.h"
+#include "GameObject.h"
+#include "GOManager.h"
 
 using namespace std;
-
-void changeViewPort(int w, int h)
-{
-	glViewport(0, 0, w, h);
-}
-
-void render()
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLineWidth(2.5);
-	glColor3f(0.0, 1.0, 0.0);
-	glBegin(GL_LINES);
-	glVertex3f(0.0, 0.0, 0.0);
-	glVertex3f(15, 0, 0);
-	glEnd();
-
-	glutSwapBuffers();
-}
-
-
 
 int main(int argc, char* argv[]) {
 
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-	glutInitWindowSize(800, 800);
-	glutCreateWindow("View");
 
-	glutReshapeFunc(changeViewPort);
-	glutDisplayFunc(render);
+	GameObject go1(0.5, 0.5);
+	GameObject go2(-0.5, 0.5);
+	GameObject go3(0.5, -0.5);
+	GameObject go4(-0.5, -0.5);
 
-	GLenum err = glewInit();
-	if (GLEW_OK != err) {
-		fprintf(stderr, "GLEW error");
-		return 1;
-	}
+	std::cout << game_objects.size() << std::endl;
 
-	glutMainLoop();
+	Display display_view(800, 800, "view");
+
 	return 0;
 }
