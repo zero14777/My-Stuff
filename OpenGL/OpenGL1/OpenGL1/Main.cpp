@@ -13,9 +13,9 @@ int main(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 
 	GameObject go1(0.5, 0.5);
-	GameObject go2(-0.5, 0.5);
-	GameObject go3(0.5, -0.5);
-	GameObject go4(-0.5, -0.5);
+	//GameObject go2(-0.5, 0.5);
+	//GameObject go3(0.5, -0.5);
+	//GameObject go4(-0.5, -0.5);
 
 	std::cout << game_objects.size() << std::endl;
 
