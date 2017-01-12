@@ -1,3 +1,15 @@
+/*Given a long integer, x, count the number of values of  satisfying the following conditions : (a xor x) > x && 0 < a < x
+
+where a and x are long integers and  is the bitwise XOR operator.
+
+You are given q queries, and each query is in the form of a long integer denoting x.For each query, print the total number of values of a satisfying the conditions above on a new line.
+
+Input Format
+
+The first line contains an integer, q, denoting the number of queries.
+Each of the  subsequent lines contains a long integer describing the value of c for a query.
+*/
+
 #include <map>
 #include <set>
 #include <list>
