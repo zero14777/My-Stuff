@@ -23,25 +23,54 @@
 
 using namespace std;
 
+void addIndirectFriend(int x, int y, std::array<std::vector<int>, 50000> *students) {
+	if (x == y || std::find(students->at(x).begin(), students->at(x).end(), y) != students->at(x).end()) {
+		return;
+	}
+	students->at(x).push_back(y);
+	students->at(y).push_back(x);
+	//cout << x << " gets friend " << y << "\n";
+	//cout << y << " gets friend " << x << "\n";
+	for (std::vector<int>::iterator it = students->at(y).begin(); it != students->at(y).end(); ++it) {
+		addIndirectFriend(x, *it, students);
+	}
+}
+
+void addFriend(int x, int y, std::array<std::vector<int>, 50000> *students) {
+	if (x == y || std::find(students->at(x).begin(), students->at(x).end(), y) != students->at(x).end()) {
+		return;
+	}
+	students->at(x).push_back(y);
+	//cout << x << " gets friend " << y << "\n";
+	for (std::vector<int>::iterator it = students->at(y).begin(); it != students->at(y).end(); ++it) {
+		addIndirectFriend(x, *it, students);
+	}
+}
 
 int main() {
-	int q;
-	cin >> q;
-	for (int a0 = 0; a0 < q; a0++) {
-		long x;
-		cin >> x;
-		// your code goes here
-		long output = 0;
-		long sig_fig = 1;
-		while (sig_fig < x) {
-			long asdf = sig_fig&x;
-			if (asdf == 0) {
-				output = output + sig_fig;
+	int t;
+	cin >> t;
+	for (int a0 = 0; a0 < t; a0++) {
+		int n;
+		int m;
+		cin >> n >> m;
+
+		int total = 0;
+		array<std::vector<int>, 50000> students;
+		for (int a1 = 0; a1 < m; a1++) {
+			int x;
+			int y;
+			cin >> x >> y;
+
+			addFriend(x, y, &students);
+			addFriend(y, x, &students);
+
+			for (int i = 0; i < n; i++) {
+				total += students.at(i).size();
 			}
-			sig_fig = sig_fig * 2;
+			//cout << total << "\n";
 		}
-		cout << output << "\n";
+		cout << total << "\n";
 	}
-	std::cin.ignore();
 	return 0;
 }

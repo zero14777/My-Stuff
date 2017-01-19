@@ -1,3 +1,115 @@
 ﻿  Source.cpp
-  throw aaway.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\throw aaway\Debug\throw aaway.exe
-  throw aaway.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\throw aaway\Debug\throw aaway.pdb (Partial PDB)
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2228: left of '.begin' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2228: left of '.end' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2672: 'std::find': no matching overloaded function found
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(27): error C2780: '_InIt std::find(_InIt,_InIt,const _Ty &)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(3176): note: see declaration of 'std::find'
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(30): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(30): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(30): error C2228: left of '.push_back' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(31): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(31): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(31): error C2228: left of '.push_back' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(34): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(34): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(34): error C2228: left of '.begin' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(34): error C2228: left of '.end' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2228: left of '.begin' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2228: left of '.end' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2672: 'std::find': no matching overloaded function found
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(40): error C2780: '_InIt std::find(_InIt,_InIt,const _Ty &)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xutility(3176): note: see declaration of 'std::find'
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(43): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(43): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(43): error C2228: left of '.push_back' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(45): error C2027: use of undefined type 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(26): note: see declaration of 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(45): error C2227: left of '->at' must point to class/struct/union/generic type
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(45): error C2228: left of '.begin' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(45): error C2228: left of '.end' must have class/struct/union
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(59): error C2079: 'students' uses undefined class 'std::array<std::vector<int,std::allocator<_Ty>>,50000>'
+          with
+          [
+              _Ty=int
+          ]
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(65): error C2664: 'void addFriend(int,int,std::array<std::vector<int,std::allocator<_Ty>>,50000> *)': cannot convert argument 3 from 'int *' to 'std::array<std::vector<int,std::allocator<_Ty>>,50000> *'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(65): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(66): error C2664: 'void addFriend(int,int,std::array<std::vector<int,std::allocator<_Ty>>,50000> *)': cannot convert argument 3 from 'int *' to 'std::array<std::vector<int,std::allocator<_Ty>>,50000> *'
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(66): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(69): error C2228: left of '.at' must have class/struct/union
+  c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(69): note: type is 'int'
+c:\users\zero14777\documents\github\my-stuff\opengl\throw aaway\throw aaway\source.cpp(69): error C2228: left of '.size' must have class/struct/union
