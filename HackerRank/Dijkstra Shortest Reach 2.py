@@ -1,4 +1,5 @@
-from collections import deque
+from heapq import heappush, heappop
+
 t = input().strip()
 t = int(t)
 for x in range(t):
@@ -10,32 +11,32 @@ for x in range(t):
     for i in range (e):
         n1, n2, w = input().strip().split(' ')
         n1, n2, w = [int(n1),int(n2),int(w)]
-        tup = (n2, w)
+        tup = (w, n2)
         edge_array[n1].append(tup)
-        tup = (n1, w)
+        tup = (w, n1)
         edge_array[n2].append(tup)
     s = input().strip()
     s = int(s)
 
     distances = [0] * (e+1)
-    q = []
-    tup = (s, 0)
-    q.append(tup)
+    heap = []
+    tup = (0, s)
+    heappush(heap, tup)
     first_one = 1
 
-    while not(len(q) == 0):
-        q.sort(key=lambda tup: tup[1], reverse=True)
-        curr = q.pop()
-        if distances[curr[0]] != 0 and not(first_one == 1):
+    while not(len(heap) == 0):
+        curr = heappop(heap)
+        if distances[curr[1]] != 0 and not(first_one == 1):
                 continue
         first_one = 0
                 
-        distances[curr[0]] = curr[1]
+        distances[curr[1]] = curr[0]
 
-        for edge in edge_array[curr[0]]:
-            if distances[edge[0]] == 0 and edge[0] != s:
-                tup = (edge[0], edge[1] + distances[curr[0]])
-                q.append(tup)
+        for edge in edge_array[curr[1]]:
+            if distances[edge[1]] == 0 and edge[1] != s:
+                tup = (edge[0] + distances[curr[1]], edge[1])
+                heappush(heap, tup)
+                
     for r in range(n+1):
         if r == 0 or r == s:
             continue
