@@ -21,50 +21,79 @@ my $temp2 = 'temp2.txt';
 open(my $fh2, ">", $temp2)
 	or die "Could not make file '$temp2' $!";
 
-while (my $line = <$data>) {
-	chomp $line;
-	if($line eq "Description") {
-		# Get Transactions
+my $tableCount = 0;
+
+while (my $outerline = <$data>) {
+	chomp $outerline;
+	
+	# Get Transactions
+	if($outerline eq "Description") {
+		$tableCount = $tableCount + 1;
+		my $gettingTransaction = 0;
 		while (my $line = <$data>) {
 			chomp $line;
 			if($line =~ m/^Total.*$/) {
+				print $fh1 "\"\n";
 				last;
 			}
 			
-			if(!($line eq "")) {
-				$line =~ m/^(\d\d\/\d\d\/\d\d) (.*)$/;
-				print $fh1 "$1,$2\n";
+			if($line =~ m/^Amount.*$/) {
+				print $fh1 "\"\n";
+				$outerline = $line;
+				last;
+			}
+			
+			
+			if ($line =~ m/^(\d\d\/\d\d\/\d\d)(.*)$/) {
+				if($gettingTransaction) {
+					print $fh1 "\"\n";
+				}
+				my $date = $1;
+				$date = "\"$date\"";
+				my $desc = $2;
+				$desc =~ s/"//; #" chars would mess up the generated csv file
+				$desc = "\"$desc";
+				print $fh1 "$date,$desc";
+				$gettingTransaction = 1;
+			} elsif (!($line eq "") and $gettingTransaction) {
+				print $fh1 " $line";
 			}
 		}
-		
-		# Get Amounts
-		my $asdvasdf = 1;
-		my $gettingAmounts = 0;
-		while ($asdvasdf) {
+	}
+	
+	# Get Amounts
+	if($outerline =~ m/^Amount.*$/ and $tableCount > 0) {# Be aware of picking up too many amounts
+		$tableCount = $tableCount - 1;
+		my @amounts = split " ", $outerline;
+		foreach my $amount (@amounts) {
+			if (!($amount eq "Amount")) {
+				$amount = "\"$amount\"";
+				print $fh2 "$amount\n";
+			}
+		}
+		my $gettingAmounts = 1;
+		while ($gettingAmounts) {
 			my $line = <$data>;
 			chomp $line;
-			if($line =~ m/^Amount.*$/) {
-				$gettingAmounts = 1;
+			
+			if($line eq "continued on the next page") {
+				last;
 			}
 			
 			if ($line =~ m/\$/) {
-				print $log "$line\n";
-				$asdvasdf = 0;
+				$gettingAmounts = 0;
 				$line =~ s/-?\$.*$//;
 			}
 			
-			if($gettingAmounts) {
-				my @amounts = split " ", $line;
-				foreach my $amount (@amounts) {
-					if (!($amount eq "Amount")) {
-						print $fh2 "$amount\n";
-					}
-				}
+			my @amounts = split " ", $line;
+			foreach my $amount (@amounts) {
+				$amount = "\"$amount\"";
+				print $fh2 "$amount\n";
 			}
 		}
 	}
 }
-##PAGE SKIPS
+
 close($fh1);
 close($fh2);
 open(my $fh1, "<", $temp1);
@@ -81,7 +110,7 @@ while (1) {
 	my $line2 = <$fh2>;
 	chomp $line2;
 	if ($line1 eq "") {
-		if (!($line1 eq "")) {
+		if (!($line2 eq "")) {
 			print $log __LINE__, ": Too many amounts\n";
 		}
 		last;
