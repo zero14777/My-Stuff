@@ -33,12 +33,12 @@ while (my $outerline = <$data>) {
 		while (my $line = <$data>) {
 			chomp $line;
 			if($line =~ m/^Total.*$/) {
-				print $fh1 "\"\n";
+				print $fh1 "\n";
 				last;
 			}
 			
 			if($line =~ m/^Amount.*$/) {
-				print $fh1 "\"\n";
+				print $fh1 "\n";
 				$outerline = $line;
 				last;
 			}
@@ -46,13 +46,13 @@ while (my $outerline = <$data>) {
 			
 			if ($line =~ m/^(\d\d\/\d\d\/\d\d)(.*)$/) {
 				if($gettingTransaction) {
-					print $fh1 "\"\n";
+					print $fh1 "\n";
 				}
 				my $date = $1;
-				$date = "\"$date\"";
+				$date = "$date";
 				my $desc = $2;
-				$desc =~ s/"//; #" chars would mess up the generated csv file
-				$desc = "\"$desc";
+				$desc =~ s/[",]//; #" chars would mess up the generated csv file
+				$desc = "$desc";
 				print $fh1 "$date,$desc";
 				$gettingTransaction = 1;
 			} elsif (!($line eq "") and $gettingTransaction) {
@@ -67,7 +67,7 @@ while (my $outerline = <$data>) {
 		my @amounts = split " ", $outerline;
 		foreach my $amount (@amounts) {
 			if (!($amount eq "Amount")) {
-				$amount = "\"$amount\"";
+				$amount =~ s/[",]//;
 				print $fh2 "$amount\n";
 			}
 		}
@@ -87,7 +87,7 @@ while (my $outerline = <$data>) {
 			
 			my @amounts = split " ", $line;
 			foreach my $amount (@amounts) {
-				$amount = "\"$amount\"";
+				$amount =~ s/[",]//;
 				print $fh2 "$amount\n";
 			}
 		}
@@ -119,5 +119,6 @@ while (1) {
 		print $log __LINE__, ": Too many descriptions\n";
 		last;
 	}
-	print $fhout "\n$line1,$line2"
+	$line1 =~ m/^(\d\d\/\d\d\/\d\d,) (.*)$/;
+	print $fhout "\n$1$2,$line2"
 }
