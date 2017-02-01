@@ -28,7 +28,7 @@ while (my $outerline = <$data>) {
 	chomp $outerline;
 	
 	# Get Transactions
-	if($outerline eq "Description") {
+	if($outerline eq "Description" or $outerline eq "Transaction description") {
 		$tableCount = $tableCount + 1;
 		my $gettingTransaction = 0;
 		while (my $line = <$data>) {
@@ -85,7 +85,7 @@ while (my $outerline = <$data>) {
 		
 		if ($end_early) {
 			#do nothing
-		} elsif ($transactionsInQueue == 0) {
+		} elsif ($transactionsInQueue == 0) { # should automatically catch end continued on next page
 			my $line;
 			my $first = 1;
 			while ($line = <$data>) {
