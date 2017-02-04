@@ -99,6 +99,7 @@ while (my $outerline = <$data>) {
 				print $transactionsFH1 "$date,$desc";
 				$gettingTransaction = 1;
 			} elsif (!($line eq "") and $gettingTransaction) {
+				$line =~ s/[",]//;
 				print $transactionsFH1 " $line";
 			}
 		}
