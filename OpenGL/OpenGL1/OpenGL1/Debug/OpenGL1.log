@@ -1,4 +1,103 @@
-﻿  Display.cpp
+﻿  Relationship.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(637): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int>(_Objty *,int &&)' being compiled
+          with
+          [
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int>(_Objty *,int &&)' being compiled
+          with
+          [
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(894): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int>(std::allocator<_Ty> &,_Objty *,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(893): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int>(std::allocator<_Ty> &,_Objty *,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(933): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<float,int>(_Ty *,int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(932): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<float,int>(_Ty *,int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\relationship.cpp(9): note: see reference to function template instantiation 'void std::vector<float,std::allocator<_Ty>>::emplace_back<int>(int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\relationship.cpp(9): note: see reference to function template instantiation 'void std::vector<float,std::allocator<_Ty>>::emplace_back<int>(int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  Personality.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(637): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int>(_Objty *,int &&)' being compiled
+          with
+          [
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(755): note: see reference to function template instantiation 'void std::allocator<_Ty>::construct<_Objty,int>(_Objty *,int &&)' being compiled
+          with
+          [
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(894): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int>(std::allocator<_Ty> &,_Objty *,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(893): note: see reference to function template instantiation 'void std::allocator_traits<_Alloc>::construct<_Ty,int>(std::allocator<_Ty> &,_Objty *,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<float>,
+              _Ty=float,
+              _Objty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(933): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<float,int>(_Ty *,int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(932): note: see reference to function template instantiation 'void std::_Wrap_alloc<std::allocator<_Ty>>::construct<float,int>(_Ty *,int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\personality.cpp(11): note: see reference to function template instantiation 'void std::vector<float,std::allocator<_Ty>>::emplace_back<int>(int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\personality.cpp(11): note: see reference to function template instantiation 'void std::vector<float,std::allocator<_Ty>>::emplace_back<int>(int &&)' being compiled
+          with
+          [
+              _Ty=float
+          ]
+  Main.cpp
+  GOManager.cpp
+  GameObject.cpp
+  Display.cpp
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(24): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(24): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(45): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
@@ -12,5 +111,6 @@ c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(96): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(97): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
 c:\users\zero14777\documents\github\my-stuff\opengl\opengl1\opengl1\display.cpp(97): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+  Generating Code...
   OpenGL1.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\OpenGL1\Debug\OpenGL1.exe
   OpenGL1.vcxproj -> C:\Users\Zero14777\Documents\GitHub\My-Stuff\OpenGL\OpenGL1\Debug\OpenGL1.pdb (Partial PDB)

@@ -122,11 +122,15 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GOManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Personality.cpp" />
+    <ClCompile Include="Relationship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GOManager.h" />
+    <ClInclude Include="Personality.h" />
+    <ClInclude Include="Relationship.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
