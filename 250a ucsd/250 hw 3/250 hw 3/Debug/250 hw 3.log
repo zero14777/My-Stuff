@@ -1,0 +1,3 @@
+﻿  250 hw 3.cpp
+c:\users\zero14777\desktop\250 hw 3\250 hw 3\250 hw 3.cpp(23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  250 hw 3.vcxproj -> C:\Users\Zero14777\Desktop\250 hw 3\Debug\250 hw 3.exe
