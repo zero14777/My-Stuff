@@ -1,0 +1,11 @@
+﻿250a 5.5.obj : error LNK2019: unresolved external symbol _sgetrf_ referenced in function "void __cdecl arma::lapack::getrf<double>(int *,int *,double *,int *,int *,int *)" (??$getrf@N@lapack@arma@@YAXPAH0PAN000@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _dgetrf_ referenced in function "void __cdecl arma::lapack::getrf<double>(int *,int *,double *,int *,int *,int *)" (??$getrf@N@lapack@arma@@YAXPAH0PAN000@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _cgetrf_ referenced in function "void __cdecl arma::lapack::getrf<double>(int *,int *,double *,int *,int *,int *)" (??$getrf@N@lapack@arma@@YAXPAH0PAN000@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _zgetrf_ referenced in function "void __cdecl arma::lapack::getrf<double>(int *,int *,double *,int *,int *,int *)" (??$getrf@N@lapack@arma@@YAXPAH0PAN000@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _sgetri_ referenced in function "void __cdecl arma::lapack::getri<double>(int *,double *,int *,int *,double *,int *,int *)" (??$getri@N@lapack@arma@@YAXPAHPAN00100@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _dgetri_ referenced in function "void __cdecl arma::lapack::getri<double>(int *,double *,int *,int *,double *,int *,int *)" (??$getri@N@lapack@arma@@YAXPAHPAN00100@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _cgetri_ referenced in function "void __cdecl arma::lapack::getri<double>(int *,double *,int *,int *,double *,int *,int *)" (??$getri@N@lapack@arma@@YAXPAHPAN00100@Z)
+250a 5.5.obj : error LNK2019: unresolved external symbol _zgetri_ referenced in function "void __cdecl arma::lapack::getri<double>(int *,double *,int *,int *,double *,int *,int *)" (??$getri@N@lapack@arma@@YAXPAHPAN00100@Z)
+D:\VSIncludes\armadillo-8.200.2\examples\lib_win64\lapack_win64_MT.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+D:\VSIncludes\armadillo-8.200.2\examples\lib_win64\blas_win64_MT.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Zero14777\Desktop\250a 5.5\Debug\250a 5.5.exe : fatal error LNK1120: 8 unresolved externals

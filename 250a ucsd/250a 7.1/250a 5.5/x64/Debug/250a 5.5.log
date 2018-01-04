@@ -1,0 +1,5 @@
+﻿  250a 5.5.cpp
+c:\users\zero14777\desktop\250a 7.1\250a 5.5\250a 5.5.cpp(84): warning C4244: 'argument': conversion from 'double' to 'const arma::uword', possible loss of data
+c:\users\zero14777\desktop\250a 7.1\250a 5.5\250a 5.5.cpp(96): warning C4244: 'argument': conversion from 'double' to 'const arma::uword', possible loss of data
+c:\users\zero14777\desktop\250a 7.1\250a 5.5\250a 5.5.cpp(135): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  250a 5.5.vcxproj -> C:\Users\Zero14777\Desktop\250a 7.1\x64\Debug\250a 5.5.exe
